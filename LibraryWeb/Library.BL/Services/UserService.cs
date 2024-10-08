@@ -1,27 +1,34 @@
 ﻿using Library.BL.Mapper;
 using Library.Data.Models;
 using Library.Data.Repository;
-using Microsoft.EntityFrameworkCore;
+using Library.Core.Interfaces;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 using BCryptNet = BCrypt.Net.BCrypt;
 
 namespace Library.BL.Services;
 
-public class UserService : IUserRepository
+public class UserService : IUserService
 {
+    private readonly IConfiguration _configuration;
     private readonly IUserRepository _userRepository;
 
-    public UserService(IUserRepository userRepository)
+    public UserService(
+        IConfiguration configuration,
+        IUserRepository userRepository)
     {
+        _configuration = configuration;
         _userRepository = userRepository;
     }
 
     public async Task<User> Login(User userModel)
     {
-
         var user = Authenticate(userModel).Result;
 
-        user.Token = Generate(user);
+        user.PasswordHash = Generate(user);
 
         return user;
     }

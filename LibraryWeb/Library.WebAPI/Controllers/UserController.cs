@@ -1,7 +1,8 @@
-﻿using AutoMapper;
-using Library.BL;
-using Library.BL.ViewDto;
-using Library.WebAPI.Services.Interfaces;
+﻿using Library.BL;
+using Library.Core.ViewDto;
+using Library.Data.Models;
+using Library.WebAPI.Mapper;
+using Library.Core.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
@@ -21,41 +22,40 @@ public class UserController : Controller
     }
 
     [AllowAnonymous]
-    [Route("~/api/Login")]
+    [Route("~/api/Register")]
     [HttpPost]
-    public async Task<IActionResult> Login([FromBody] UserViewDto userViewDto)
+    public async Task<IActionResult> Register([FromBody] UserViewDto userViewDto)
     {
         try
         {
             var user = ApiMapper.Mapper.Map<User>(userViewDto);
-            var response = await _userService.Login(user);
-            var apiResult = ApiResult<UserModel>.Success(response);
-            return Ok(apiResult);
-        }
-        catch (Exception ex)
-        {
-            var apiResult = ApiResult<UserModel>.Failure(new[] { ex.Message });
-            return Problem(detail: JsonSerializer.Serialize(apiResult));
-        }
-    }
-
-    [AllowAnonymous]
-    [Route("~/api/Register")]
-    [HttpPost]
-    public async Task<IActionResult> Register([FromBody] UserViewModel userViewModel)
-    {
-
-        try
-        {
-            var user = ApiMapper.Mapper.Map<UserModel>(userViewModel);
             var response = await _userService.Register(user);
-            var apiResult = ApiResult<UserModel>.Success(response);
+            var apiResult = ApiResult<User>.Success(response);
             return Ok(apiResult);
         }
         catch (Exception ex)
         {
-            var apiResult = ApiResult<UserModel>.Failure(new[] { ex.Message });
+            var apiResult = ApiResult<User>.Failure(new[] { ex.Message });
             return Problem(detail: JsonSerializer.Serialize(apiResult));
         }
     }
+
+    //[AllowAnonymous]
+    //[Route("~/api/Login")]
+    //[HttpPost]
+    //public async Task<IActionResult> Login([FromBody] UserViewDto userViewDto)
+    //{
+    //    try
+    //    {
+    //        var user = ApiMapper.Mapper.Map<User>(userViewDto);
+    //        var response = await _userService.Login(user);
+    //        var apiResult = ApiResult<UserModel>.Success(response);
+    //        return Ok(apiResult);
+    //    }
+    //    catch (Exception ex)
+    //    {
+    //        var apiResult = ApiResult<UserModel>.Failure(new[] { ex.Message });
+    //        return Problem(detail: JsonSerializer.Serialize(apiResult));
+    //    }
+    //}
 }
