@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Library.Data.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20241008091224_CreateDB")]
+    [Migration("20241008172920_CreateDB")]
     partial class CreateDB
     {
         /// <inheritdoc />
@@ -110,10 +110,7 @@ namespace Library.Data.Migrations
                     b.Property<DateTime>("TakenTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("UserCredentialsId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("UserId")
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -192,7 +189,9 @@ namespace Library.Data.Migrations
                 {
                     b.HasOne("Library.Data.Models.User", null)
                         .WithMany("BookLoans")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Library.Data.Models.Author", b =>

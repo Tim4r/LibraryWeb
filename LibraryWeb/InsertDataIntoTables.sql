@@ -40,16 +40,16 @@ VALUES
 ('Absurdism');
 
 
-INSERT INTO Users (Login, PasswordHash, Email)
+INSERT INTO Users (Login, PasswordHash, PasswordSalt, Email)
 VALUES 
-('timanders', '$4b$12$eKCMOqOBkWQrVzRtUyYxuC', 'timanders@gmail.com'),
-('janedoe', '$3b$20$eJCMLqXNkWQrVzRtUyYxuD', 'jane@gmail.com'),
-('michaeljordan', '$2b$12$eJCMOqXNkWQrVzRtUyYxuF', 'mj@gmail.com'),
-('emmataylor', '$2b$14$eJCMOQxNkWQrVzRtUyYxuO', 'emma@yahoo.com'),
-('davidlee', '$2b$21$eJnMOqXNkWQrVzRtUyYxuQ', 'david@hotmail.com');
+('timanders', '$4b$12$eKCMOqOBkWQrVzRtUyYxuC', '$2b$21$eJnMOqXNkWQrVzRtOyYxuQ', 'timanders@gmail.com'),
+('janedoe', '$3b$20$eJCMLqXNkWQrVzRtUyYxuD', '$2b$12$eJCMOqBNkWQrVzRtUyYxuF', 'jane@gmail.com'),
+('michaeljordan', '$2b$12$eJCMOqXNkWQrVzRtUyYxuF', '$2b$21$eJnMOqiNkWQrVzRtUyYxuQ', 'mj@gmail.com'),
+('emmataylor', '$2b$14$eJCMOQxNkWQrVzRtUyYxuO', '$2b$14$eJCMOQxNkWQrVzRtUyYxuO', 'emma@yahoo.com'),
+('davidlee', '$2b$21$eJnMOqXNkWQrVzRtUyYxuQ', '$2b$12$eBCbOqXjkWQrVzRtUyYxuF', 'david@hotmail.com');
 
 
-INSERT INTO BookLoans (TakenTime, ReturnTime, UserCredentialsId)
+INSERT INTO BookLoans (TakenTime, ReturnTime, UserId)
 VALUES 
 ('2023-01-01', '2023-01-15', 1),
 ('2023-01-02', '2023-01-16', 4),

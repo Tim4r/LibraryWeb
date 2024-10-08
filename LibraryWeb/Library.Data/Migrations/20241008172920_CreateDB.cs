@@ -64,8 +64,7 @@ namespace Library.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     TakenTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ReturnTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UserCredentialsId = table.Column<int>(type: "int", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: true)
+                    UserId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -74,7 +73,8 @@ namespace Library.Data.Migrations
                         name: "FK_BookLoans_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
