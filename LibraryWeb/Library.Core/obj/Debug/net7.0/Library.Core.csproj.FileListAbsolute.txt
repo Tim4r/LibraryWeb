@@ -20,3 +20,7 @@ D:\Repositories\LibraryWeb\LibraryWeb\Library.Core\obj\Debug\net7.0\Library.Core
 D:\Repositories\LibraryWeb\LibraryWeb\Library.Core\obj\Debug\net7.0\refint\Library.Core.dll
 D:\Repositories\LibraryWeb\LibraryWeb\Library.Core\obj\Debug\net7.0\Library.Core.pdb
 D:\Repositories\LibraryWeb\LibraryWeb\Library.Core\obj\Debug\net7.0\ref\Library.Core.dll
+D:\Repositories\LibraryWeb\LibraryWeb\Library.Core\bin\Debug\net7.0\Library.Data.dll
+D:\Repositories\LibraryWeb\LibraryWeb\Library.Core\bin\Debug\net7.0\Library.Data.pdb
+D:\Repositories\LibraryWeb\LibraryWeb\Library.Core\obj\Debug\net7.0\Library.Core.csproj.AssemblyReference.cache
+D:\Repositories\LibraryWeb\LibraryWeb\Library.Core\obj\Debug\net7.0\Library.Core.csproj.CopyComplete

@@ -28,7 +28,7 @@ public class UserController : Controller
     {
         try
         {
-            var user = ApiMapper.Mapper.Map<User>(userViewDto);
+            var user = DtoToViewDtoMapper.Mapper.Map<User>(userViewDto);
             var response = await _userService.Register(user);
             var apiResult = ApiResult<User>.Success(response);
             return Ok(apiResult);

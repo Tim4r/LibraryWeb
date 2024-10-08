@@ -2,14 +2,14 @@
 
 namespace Library.WebAPI.Mapper;
 
-public class ApiMapper
+public class DtoToViewDtoMapper
 {
     private static readonly Lazy<IMapper> Lazy = new(() =>
     {
         var config = new MapperConfiguration(cfg =>
         {
             cfg.ShouldMapProperty = p => p.GetMethod.IsPublic || p.GetMethod.IsAssembly;
-            cfg.AddProfile<ApiMapperProfile>();
+            cfg.AddProfile<DtoToViewDtoMapperProfile>();
         });
         var mapper = config.CreateMapper();
         return mapper;

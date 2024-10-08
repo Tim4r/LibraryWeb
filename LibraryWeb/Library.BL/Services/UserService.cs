@@ -24,22 +24,22 @@ public class UserService : IUserService
         _userRepository = userRepository;
     }
 
-    public async Task<User> Login(User userModel)
-    {
-        var user = Authenticate(userModel).Result;
+    //public async Task<User> Login(User userModel)
+    //{
+    //    var user = Authenticate(userModel).Result;
 
-        user.PasswordHash = Generate(user);
+    //    user.PasswordHash = Generate(user);
 
-        return user;
-    }
+    //    return user;
+    //}
 
     public async Task<User> Register(User userModel)
     {
         try
         {
-            var user = MapperApp.Mapper.Map<User>(userModel);
+            var user = ModelToDtoMapper.Mapper.Map<User>(userModel);
             var userToFind = _userRepository.GetUserWithEmail(user);
-            user.PasswordHash = BCryptNet.HashPassword(userModel.Password);
+            user.PasswordHash = BCryptNet.HashPassword(userModel.PasswordHash);
             user.PasswordSalt = BCryptNet.GenerateSalt();
             await _userRepository.Register(user);
             return userModel;
@@ -51,46 +51,41 @@ public class UserService : IUserService
         }
     }
 
-    private async Task<User> Authenticate(User userModel)
-    {
-        var user = MapperApp.Mapper.Map<User>(userModel);
-        user = await _userRepository.GetUserWithEmail(user);
-        if (user == null || !BCryptNet.Verify(userModel.Password, user.PasswordHash))
-            return null;
+    //private async Task<User> Authenticate(User userModel)
+    //{
+    //    var user = MapperApp.Mapper.Map<User>(userModel);
+    //    user = await _userRepository.GetUserWithEmail(user);
+    //    if (user == null || !BCryptNet.Verify(userModel.Password, user.PasswordHash))
+    //        return null;
 
-        return user;
-    }
+    //    return user;
+    //}
 
-    private string Generate(User user)
-    {
-        var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
-        var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+    //private string Generate(User user)
+    //{
+    //    var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
+    //    var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
-        var claims = new[]
-        {
-            new Claim(ClaimTypes.NameIdentifier, user.FirstName),
-            new Claim(ClaimTypes.Email, user.Email),
-            new Claim(ClaimTypes.Surname, user.Surname)
-        };
+    //    var claims = new[]
+    //    {
+    //        new Claim(ClaimTypes.NameIdentifier, user.FirstName),
+    //        new Claim(ClaimTypes.Email, user.Email),
+    //        new Claim(ClaimTypes.Surname, user.Surname)
+    //    };
 
-        var token = new JwtSecurityToken
-        (
-           issuer: _configuration["Jwt:Issuer"],
-           audience: _configuration["Jwt:Audience"],
-           claims: claims,
-           expires: DateTime.UtcNow.AddDays(7),
-           signingCredentials: credentials
-        );
+    //    var token = new JwtSecurityToken
+    //    (
+    //       issuer: _configuration["Jwt:Issuer"],
+    //       audience: _configuration["Jwt:Audience"],
+    //       claims: claims,
+    //       expires: DateTime.UtcNow.AddDays(7),
+    //       signingCredentials: credentials
+    //    );
 
-        return new JwtSecurityTokenHandler().WriteToken(token);
-    }
+    //    return new JwtSecurityTokenHandler().WriteToken(token);
+    //}
 
-    public async Task<User> GetUserWithEmail(User user)
-    {
-        var userWithEmail = _context.Users.FindAsync(user.Email).Result;
-        return userWithEmail;
-
-    }
+    
     //public async Task<User> CreateUserAsync(User user)
     //{
     //    await _userRepository.CreateUserAsync(user);

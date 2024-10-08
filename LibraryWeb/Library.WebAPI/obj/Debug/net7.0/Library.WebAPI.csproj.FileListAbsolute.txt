@@ -156,3 +156,5 @@ D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\refint\Lib
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\Library.WebAPI.pdb
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\Library.WebAPI.genruntimeconfig.cache
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\ref\Library.WebAPI.dll
+D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\BCrypt.Net-Next.dll
+D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\Microsoft.Bcl.TimeProvider.dll

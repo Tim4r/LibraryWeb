@@ -24,3 +24,5 @@ D:\Repositories\LibraryWeb\LibraryWeb\Library.BL\bin\Debug\net7.0\Library.Data.d
 D:\Repositories\LibraryWeb\LibraryWeb\Library.BL\bin\Debug\net7.0\Library.Data.pdb
 D:\Repositories\LibraryWeb\LibraryWeb\Library.BL\obj\Debug\net7.0\Library.BL.csproj.AssemblyReference.cache
 D:\Repositories\LibraryWeb\LibraryWeb\Library.BL\obj\Debug\net7.0\Library.BL.csproj.CopyComplete
+D:\Repositories\LibraryWeb\LibraryWeb\Library.BL\bin\Debug\net7.0\Library.Core.dll
+D:\Repositories\LibraryWeb\LibraryWeb\Library.BL\bin\Debug\net7.0\Library.Core.pdb
