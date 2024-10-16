@@ -8,6 +8,5 @@
         public string? Image { get; set; } = string.Empty;
         public int AuthorId { get; set; }
         public int CategoryId { get; set; }
-        public int? BookLoanId { get; set; }
     }
 }

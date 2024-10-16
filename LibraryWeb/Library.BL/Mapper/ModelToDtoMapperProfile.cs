@@ -8,9 +8,7 @@ public class ModelToDtoMapperProfile : Profile
 {
     public ModelToDtoMapperProfile()
     {
-        CreateMap<Book, BookDto>()
-           .ReverseMap();
-        CreateMap<User, UserDto>()
-            .ReverseMap();
+        CreateMap<Book, BookDto>().ReverseMap();
+        CreateMap<User, UserDto>().ReverseMap();
     }
 }

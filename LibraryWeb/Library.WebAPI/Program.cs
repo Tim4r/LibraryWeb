@@ -1,3 +1,8 @@
+using Library.Core.DependencyInjection;
+using Library.Data;
+using Library.Data.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+
 namespace Library.WebAPI;
 
 public class Program
@@ -7,8 +12,17 @@ public class Program
         var builder = WebApplication.CreateBuilder(args);
 
         // Add services to the container.
-
+        builder.Services.AddDbContext<ApplicationDBContext>(options =>
+            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+        
         builder.Services.AddControllers();
+
+        builder.Services.AddRepositories();
+
+        builder.Services.AddAutoMapper(typeof(Program).Assembly);
+
+        builder.Services.AddServices();
+        
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();

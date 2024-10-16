@@ -77,6 +77,12 @@ D:\Repositories\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\refint\Library.WebAPI
 D:\Repositories\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\Library.WebAPI.pdb
 D:\Repositories\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\Library.WebAPI.genruntimeconfig.cache
 D:\Repositories\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\ref\Library.WebAPI.dll
+D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\Library.WebAPI.csproj.AssemblyReference.cache
+D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\Library.WebAPI.GeneratedMSBuildEditorConfig.editorconfig
+D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\Library.WebAPI.AssemblyInfoInputs.cache
+D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\Library.WebAPI.AssemblyInfo.cs
+D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\Library.WebAPI.csproj.CoreCompileInputs.cache
+D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\Library.WebAPI.MvcApplicationPartsAssemblyInfo.cache
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\appsettings.Development.json
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\appsettings.json
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\Library.WebAPI.exe
@@ -88,8 +94,10 @@ D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\AutoMapper
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\Azure.Core.dll
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\Azure.Identity.dll
+D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\BCrypt.Net-Next.dll
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\Microsoft.AspNetCore.OpenApi.dll
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\Microsoft.Bcl.TimeProvider.dll
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\Microsoft.Data.SqlClient.dll
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Abstractions.dll
@@ -135,13 +143,6 @@ D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\Library.Da
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\Library.BL.pdb
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\Library.Core.pdb
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\Library.Data.pdb
-D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\Library.WebAPI.csproj.AssemblyReference.cache
-D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\Library.WebAPI.GeneratedMSBuildEditorConfig.editorconfig
-D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\Library.WebAPI.AssemblyInfoInputs.cache
-D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\Library.WebAPI.AssemblyInfo.cs
-D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\Library.WebAPI.csproj.CoreCompileInputs.cache
-D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\Library.WebAPI.MvcApplicationPartsAssemblyInfo.cs
-D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\Library.WebAPI.MvcApplicationPartsAssemblyInfo.cache
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\staticwebassets\msbuild.Library.WebAPI.Microsoft.AspNetCore.StaticWebAssets.props
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\staticwebassets\msbuild.build.Library.WebAPI.props
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.Library.WebAPI.props
@@ -156,5 +157,4 @@ D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\refint\Lib
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\Library.WebAPI.pdb
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\Library.WebAPI.genruntimeconfig.cache
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\ref\Library.WebAPI.dll
-D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\BCrypt.Net-Next.dll
-D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\Microsoft.Bcl.TimeProvider.dll
+D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\Library.WebAPI.MvcApplicationPartsAssemblyInfo.cs
