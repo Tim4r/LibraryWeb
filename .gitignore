@@ -70,3 +70,9 @@ packages
 *.tmp
 npm-debug.log
 appsettings.json
+
+# Ignore bin/Debug/net7.0 directory
+bin/Debug/net7.0/
+
+# Ignore obj directory
+obj/
