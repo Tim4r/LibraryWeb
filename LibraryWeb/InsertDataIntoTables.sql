@@ -49,41 +49,41 @@ VALUES
 ('davidlee', '$2b$21$eJnMOqXNkWQrVzRtUyYxuQ', '$2b$12$eBCbOqXjkWQrVzRtUyYxuF', 'david@hotmail.com');
 
 
-INSERT INTO BookLoans (TakenTime, ReturnTime, UserId)
+INSERT INTO BookLoans (TakenTime, ReturnTime, UserId, BookId)
 VALUES 
-('2023-01-01', '2023-01-15', 1),
-('2023-01-02', '2023-01-16', 4),
-('2023-01-03', '2023-01-17', 3),
-('2023-01-04', '2023-01-18', 1),
-('2023-01-05', '2023-01-19', 2),
-('2023-01-06', '2023-01-20', 4),
-('2023-01-07', '2023-01-21', 5),
-('2023-01-08', '2023-01-22', 2),
-('2023-01-09', '2023-01-23', 5),
-('2023-01-10', '2023-01-24', 1);
+('2023-01-01', '2023-01-15', 1, 3),
+('2023-01-02', '2023-01-16', 4, 4),
+('2023-01-03', '2023-01-17', 3, 5),
+('2023-01-04', '2023-01-18', 1, 11),
+('2023-01-05', '2023-01-19', 2, 8),
+('2023-01-06', '2023-01-20', 4, 10),
+('2023-01-07', '2023-01-21', 5, 21),
+('2023-01-08', '2023-01-22', 2, 15),
+('2023-01-09', '2023-01-23', 5, 16),
+('2023-01-10', '2023-01-24', 1, 22);
 
 
-INSERT INTO Books (Title, ISBN, Description, Image, AuthorId, CategoryId, BookLoanId)
+INSERT INTO Books (Title, ISBN, Description, Image, AuthorId, CategoryId)
 VALUES 
-('Harry Potter and the Philosopher''s Stone', '9780747532699', 'The first book in J.K. Rowling''s beloved Harry Potter series.', NULL, 1, 1, 1),
-('A Game of Thrones', '9780553573404', 'The first book in George R.R. Martin''s A Song of Ice and Fire series.', NULL, 2, 1, 3),
-('Misery', '9780743454651', 'A psychological horror novel by Stephen King about a writer held captive by his ''number one fan''.', NULL, 3, 5, NULL),
-('The Lord of the Rings', '9780261103301', 'High fantasy adventure novel by J.R.R. Tolkien.', NULL, 4, 1, 3),
-('To Kill a Mockingbird', '9780061120084', 'Classic novel exploring racial injustice through the eyes of a young girl in the Deep South.', NULL, 5, 2, 6),
-('Pride and Prejudice', '9780743273565', 'Romantic novel of manners by Jane Austen.', NULL, 6, 2, 8),
-('Oliver Twist', '9780743274562', 'Classic Victorian-era novel about a poor orphan who falls in with a gang of pickpockets in London.', NULL, 7, 3, 4),
-('War and Peace', '9780743273565', 'Epic historical novel by Leo Tolstoy set during the Napoleonic Wars.', NULL, 8, 3, NULL),
-('Mrs Dalloway', '9780241954719', 'Modernist novel by Virginia Woolf exploring life in post-World War I England.', NULL, 9, 2, 3),
-('The Brief Wondrous Life of Oscar Wao', '9780374158177', 'Modern magical realist novel by Gabriel Ansley about Dominican-American identity.', NULL, 10, 6, NULL),
-('White Teeth', '9780312421135', 'Satirical novel by Zadie Smith exploring multiculturalism in post-war London.', NULL, 11, 2, 10),
-('Underworld', '9780679767877', 'Postmodern epic novel by Don DeLillo spanning several decades of American history.', NULL, 12, 4, 10),
-('The Handmaid''s Tale', '9780553283685', 'Dystopian novel by Margaret Atwood exploring a patriarchal society.', NULL, 13, 1, 9),
-('Never Let Me Go', '9780099500736', 'Haunting novel by Kazuo Ishiguro exploring the lives of three friends at an English boarding school.', NULL, 14, 2, 2),
-('Half-Blood Prince', '9780439708180', 'Sixth book in the Harry Potter series by J.K. Rowling.', NULL, 1, 1, 2),
-('The God of Small Things', '9781782115514', 'Novel by Arundhati Roy exploring the intertwined lives of twins growing up in Kerala, India.', NULL, 15, 2, 4),
-('The Namesake', '9781400033416', 'Novel by Jhumpa Lahiri exploring the experiences of Indian immigrants in New York City.', NULL, 16, 2, 3),
-('Beloved', '9780743273565', 'Haunting novel by Toni Morrison exploring the legacy of slavery and its effects on African Americans.', NULL, 17, 5, 5),
-('The Kite Runner', '9780747584585', 'Novel by Khaled Hosseini exploring friendship, betrayal, and redemption in Afghanistan.', NULL, 18, 2, 5),
-('The Road', '9780307276750', 'Post-apocalyptic novel by Cormac McCarthy exploring a father-son journey through a devastated America.', NULL, 19, 4, 6),
-('The Remains of the Day', '9780399159926', 'Novel by Kazuo Ishiguro exploring the life of a butler reflecting on his decades-long service at an English estate.', NULL, 14, 2, NULL),
-('The Brief History of the Dead', '9781594200705', 'Novel by Kevin Brockmeier exploring an afterlife where souls exist in a vast library.', NULL, 19, 4, 9);
+('Harry Potter and the Philosopher''s Stone', '9780747532699', 'The first book in J.K. Rowling''s beloved Harry Potter series.', NULL, 1, 1),
+('A Game of Thrones', '9780553573404', 'The first book in George R.R. Martin''s A Song of Ice and Fire series.', NULL, 2, 1),
+('Misery', '9780743454651', 'A psychological horror novel by Stephen King about a writer held captive by his ''number one fan''.', NULL, 3, 5),
+('The Lord of the Rings', '9780261103301', 'High fantasy adventure novel by J.R.R. Tolkien.', NULL, 4, 1),
+('To Kill a Mockingbird', '9780061120084', 'Classic novel exploring racial injustice through the eyes of a young girl in the Deep South.', NULL, 5, 2),
+('Pride and Prejudice', '9780743273565', 'Romantic novel of manners by Jane Austen.', NULL, 6, 2),
+('Oliver Twist', '9780743274562', 'Classic Victorian-era novel about a poor orphan who falls in with a gang of pickpockets in London.', NULL, 7, 3),
+('War and Peace', '9780743273565', 'Epic historical novel by Leo Tolstoy set during the Napoleonic Wars.', NULL, 8, 3),
+('Mrs Dalloway', '9780241954719', 'Modernist novel by Virginia Woolf exploring life in post-World War I England.', NULL, 9, 2),
+('The Brief Wondrous Life of Oscar Wao', '9780374158177', 'Modern magical realist novel by Gabriel Ansley about Dominican-American identity.', NULL, 10, 6),
+('White Teeth', '9780312421135', 'Satirical novel by Zadie Smith exploring multiculturalism in post-war London.', NULL, 11, 2),
+('Underworld', '9780679767877', 'Postmodern epic novel by Don DeLillo spanning several decades of American history.', NULL, 12, 4),
+('The Handmaid''s Tale', '9780553283685', 'Dystopian novel by Margaret Atwood exploring a patriarchal society.', NULL, 13, 1),
+('Never Let Me Go', '9780099500736', 'Haunting novel by Kazuo Ishiguro exploring the lives of three friends at an English boarding school.', NULL, 14, 2),
+('Half-Blood Prince', '9780439708180', 'Sixth book in the Harry Potter series by J.K. Rowling.', NULL, 1, 1),
+('The God of Small Things', '9781782115514', 'Novel by Arundhati Roy exploring the intertwined lives of twins growing up in Kerala, India.', NULL, 15, 2),
+('The Namesake', '9781400033416', 'Novel by Jhumpa Lahiri exploring the experiences of Indian immigrants in New York City.', NULL, 16, 2),
+('Beloved', '9780743273565', 'Haunting novel by Toni Morrison exploring the legacy of slavery and its effects on African Americans.', NULL, 17, 5),
+('The Kite Runner', '9780747584585', 'Novel by Khaled Hosseini exploring friendship, betrayal, and redemption in Afghanistan.', NULL, 18, 2),
+('The Road', '9780307276750', 'Post-apocalyptic novel by Cormac McCarthy exploring a father-son journey through a devastated America.', NULL, 19, 4),
+('The Remains of the Day', '9780399159926', 'Novel by Kazuo Ishiguro exploring the life of a butler reflecting on his decades-long service at an English estate.', NULL, 14, 2),
+('The Brief History of the Dead', '9781594200705', 'Novel by Kevin Brockmeier exploring an afterlife where souls exist in a vast library.', NULL, 19, 4);
