@@ -9,5 +9,7 @@ public interface IBookRepository
     Task<Book> GetBookByISBNAsync(string ISBN);
     Task<Book> CreateBookAsync(Book book);
     Task<Book> UpdateBookAsync(int id, Book book);
+    Task<Book> DeleteBookAsync(int id);
+    
     void SaveChanges();
 }

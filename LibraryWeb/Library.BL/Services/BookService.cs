@@ -59,4 +59,10 @@ public class BookService : IBookService
         var updatedBook = await _bookRepository.UpdateBookAsync(id, bookToUpdate);
         return ModelToDtoMapper.Mapper.Map<BookDto>(updatedBook);
     }
+
+    public async Task<BookDto> DeleteBookAsync(int id)
+    {
+        var bookForDelete = await _bookRepository.DeleteBookAsync(id);
+        return ModelToDtoMapper.Mapper.Map<BookDto>(bookForDelete);
+    }
 }

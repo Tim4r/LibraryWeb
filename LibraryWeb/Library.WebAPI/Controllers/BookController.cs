@@ -105,4 +105,23 @@ public class BookController : ControllerBase
             return Problem(detail: JsonSerializer.Serialize(apiResult));
         }
     }
+
+    [HttpDelete]
+    [Route("~/api/DeleteBook")]
+    public async Task<IActionResult> DeleteBook(int id)
+    {
+        try
+        {
+            var response = await _bookService.DeleteBookAsync(id);
+            var apiResult = ApiResult<BookDto>.Success(response);
+            return Ok(apiResult);
+        }
+        catch (Exception ex)
+        {
+            var apiResult = ApiResult<BookDto>.Failure(new[] { ex.Message });
+            return Problem(detail: JsonSerializer.Serialize(apiResult));
+        }
+    }
+
+    
 }

@@ -46,6 +46,14 @@ public class BookRepository : IBookRepository
         return sourceBook;
     }
 
+    public async Task<Book> DeleteBookAsync(int id)
+    {
+        var book = _context.Books.FirstOrDefault(x => x.Id == id);
+        var deletedBook = _context.Books.Remove(book).Entity;
+        await _context.SaveChangesAsync();
+        return deletedBook;
+    }
+
     public void SaveChanges()
     {
         _context.SaveChanges();

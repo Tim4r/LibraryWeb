@@ -10,4 +10,5 @@ public interface IBookService
     Task<BookDto> GetBookByISBNAsync(string ISBN);
     Task<BookDto> CreateBookAsync(BookDto book);
     Task<BookDto> UpdateBookAsync(int id, BookDto book);
+    Task<BookDto> DeleteBookAsync(int id);
 }
