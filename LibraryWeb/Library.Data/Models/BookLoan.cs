@@ -7,6 +7,4 @@ public class BookLoan
     public DateTime ReturnTime { get; set; }
     public int UserId { get; set; }
     public int BookId { get; set; }
-    public ICollection<Book> Books { get; set; }
-    public BookLoan() => Books = new List<Book>();
 }

@@ -26,4 +26,6 @@ D:\Repositories\LibraryWeb\LibraryWeb\Library.Data\obj\Debug\net7.0\refint\Libra
 D:\Repositories\LibraryWeb\LibraryWeb\Library.Data\obj\Debug\net7.0\Library.Data.pdb
 D:\Repositories\LibraryWeb\LibraryWeb\Library.Data\obj\Debug\net7.0\Library.Data.genruntimeconfig.cache
 D:\Repositories\LibraryWeb\LibraryWeb\Library.Data\obj\Debug\net7.0\ref\Library.Data.dll
+D:\Repositories\LibraryWeb\LibraryWeb\Library.Data\bin\Debug\net7.0\Context\appsettings.Development.json
+D:\Repositories\LibraryWeb\LibraryWeb\Library.Data\bin\Debug\net7.0\Context\appsettings.json
 D:\Repositories\LibraryWeb\LibraryWeb\Library.Data\obj\Debug\net7.0\Library.Data.sourcelink.json

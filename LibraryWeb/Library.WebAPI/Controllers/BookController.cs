@@ -2,6 +2,7 @@
 using Library.Core.Dtos;
 using Library.Core.Interfaces;
 using Library.Core.ViewDto;
+using Library.Data.Models;
 using Library.WebAPI.Mapper;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;

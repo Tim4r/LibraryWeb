@@ -49,20 +49,6 @@ VALUES
 ('davidlee', '$2b$21$eJnMOqXNkWQrVzRtUyYxuQ', '$2b$12$eBCbOqXjkWQrVzRtUyYxuF', 'david@hotmail.com');
 
 
-INSERT INTO BookLoans (TakenTime, ReturnTime, UserId, BookId)
-VALUES 
-('2023-01-01', '2023-01-15', 1, 3),
-('2023-01-02', '2023-01-16', 4, 4),
-('2023-01-03', '2023-01-17', 3, 5),
-('2023-01-04', '2023-01-18', 1, 11),
-('2023-01-05', '2023-01-19', 2, 8),
-('2023-01-06', '2023-01-20', 4, 10),
-('2023-01-07', '2023-01-21', 5, 21),
-('2023-01-08', '2023-01-22', 2, 15),
-('2023-01-09', '2023-01-23', 5, 16),
-('2023-01-10', '2023-01-24', 1, 22);
-
-
 INSERT INTO Books (Title, ISBN, Description, Image, AuthorId, CategoryId)
 VALUES 
 ('Harry Potter and the Philosopher''s Stone', '9780747532699', 'The first book in J.K. Rowling''s beloved Harry Potter series.', NULL, 1, 1),
@@ -87,3 +73,17 @@ VALUES
 ('The Road', '9780307276750', 'Post-apocalyptic novel by Cormac McCarthy exploring a father-son journey through a devastated America.', NULL, 19, 4),
 ('The Remains of the Day', '9780399159926', 'Novel by Kazuo Ishiguro exploring the life of a butler reflecting on his decades-long service at an English estate.', NULL, 14, 2),
 ('The Brief History of the Dead', '9781594200705', 'Novel by Kevin Brockmeier exploring an afterlife where souls exist in a vast library.', NULL, 19, 4);
+
+
+INSERT INTO BookLoans (TakenTime, ReturnTime, UserId, BookId)
+VALUES 
+('2023-01-01', '2023-01-15', 1, 3),
+('2023-01-02', '2023-01-16', 4, 4),
+('2023-01-03', '2023-01-17', 3, 5),
+('2023-01-04', '2023-01-18', 1, 11),
+('2023-01-05', '2023-01-19', 2, 8),
+('2023-01-06', '2023-01-20', 4, 10),
+('2023-01-07', '2023-01-21', 5, 21),
+('2023-01-08', '2023-01-22', 2, 15),
+('2023-01-09', '2023-01-23', 5, 16),
+('2023-01-10', '2023-01-24', 1, 22);

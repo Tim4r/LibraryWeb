@@ -26,3 +26,5 @@ D:\Repositories\LibraryWeb\LibraryWeb\Library.BL\obj\Debug\net7.0\Library.BL.dll
 D:\Repositories\LibraryWeb\LibraryWeb\Library.BL\obj\Debug\net7.0\refint\Library.BL.dll
 D:\Repositories\LibraryWeb\LibraryWeb\Library.BL\obj\Debug\net7.0\Library.BL.pdb
 D:\Repositories\LibraryWeb\LibraryWeb\Library.BL\obj\Debug\net7.0\ref\Library.BL.dll
+D:\Repositories\LibraryWeb\LibraryWeb\Library.BL\bin\Debug\net7.0\Context\appsettings.Development.json
+D:\Repositories\LibraryWeb\LibraryWeb\Library.BL\bin\Debug\net7.0\Context\appsettings.json
