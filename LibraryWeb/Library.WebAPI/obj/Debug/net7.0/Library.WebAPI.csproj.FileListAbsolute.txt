@@ -167,10 +167,5 @@ D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\Microsoft.
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\System.Text.Encodings.Web.dll
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\System.Text.Json.dll
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\runtimes\browser\lib\net7.0\System.Text.Encodings.Web.dll
-D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\Humanizer.dll
-D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Design.dll
-D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
-D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\Mono.TextTemplating.dll
-D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\System.CodeDom.dll
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\Context\appsettings.Development.json
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\Context\appsettings.json

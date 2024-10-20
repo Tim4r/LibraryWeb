@@ -4,6 +4,7 @@ using Library.Core.Interfaces;
 using Library.Data.Context;
 using Library.Data.Models;
 using Library.Data.Repository.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace Library.BL.Services;
 
@@ -64,5 +65,34 @@ public class BookService : IBookService
     {
         var bookForDelete = await _bookRepository.DeleteBookAsync(id);
         return ModelToDtoMapper.Mapper.Map<BookDto>(bookForDelete);
+    }
+
+    public async Task<BookLoanDto> HandOutBookAsync(BookLoanDto bookLoan)
+    {
+        var bookExists = await _context.Books.AnyAsync(b => b.Id == bookLoan.BookId);
+        if (!bookExists)
+        {
+            throw new ArgumentException("Book with the provided ID does not exist.");
+        }
+
+        var userExists = await _context.Users.AnyAsync(u => u.Id == bookLoan.UserId);
+        if (!userExists)
+        {
+            throw new ArgumentException("User with the provided ID does not exist.");
+        }
+
+        var isBookLoaned = await _context.BookLoans.AnyAsync(bl => bl.BookId == bookLoan.BookId);
+        if (isBookLoaned)
+        {
+            throw new InvalidOperationException("The book is currently loaned out.");
+        }
+
+        var newBookLoan = ModelToDtoMapper.Mapper.Map<BookLoan>(bookLoan);
+        newBookLoan.TakenTime = DateTime.Now;
+
+        await _bookRepository.CreateBookLoanAsync(newBookLoan);
+        _bookRepository.SaveChanges();
+
+        return ModelToDtoMapper.Mapper.Map<BookLoanDto>(newBookLoan);
     }
 }

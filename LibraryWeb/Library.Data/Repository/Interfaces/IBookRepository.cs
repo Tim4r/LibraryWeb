@@ -10,6 +10,7 @@ public interface IBookRepository
     Task<Book> CreateBookAsync(Book book);
     Task<Book> UpdateBookAsync(int id, Book book);
     Task<Book> DeleteBookAsync(int id);
+    Task<BookLoan> CreateBookLoanAsync(BookLoan bookLoan);
     
     void SaveChanges();
 }

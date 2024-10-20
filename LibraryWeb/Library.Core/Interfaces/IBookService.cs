@@ -1,5 +1,4 @@
 ﻿using Library.Core.Dtos;
-using Library.Data.Models;
 
 namespace Library.Core.Interfaces;
 
@@ -11,4 +10,5 @@ public interface IBookService
     Task<BookDto> CreateBookAsync(BookDto book);
     Task<BookDto> UpdateBookAsync(int id, BookDto book);
     Task<BookDto> DeleteBookAsync(int id);
+    Task<BookLoanDto> HandOutBookAsync(BookLoanDto book);
 }

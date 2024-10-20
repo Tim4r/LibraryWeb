@@ -55,6 +55,13 @@ public class BookRepository : IBookRepository
         return deletedBook;
     }
 
+    public async Task<BookLoan> CreateBookLoanAsync(BookLoan bookLoan)
+    {
+        _context.BookLoans.Add(bookLoan);
+        await _context.SaveChangesAsync();
+        return _context.Entry(bookLoan).Entity;
+    }
+
     public void SaveChanges()
     {
         _context.SaveChanges();

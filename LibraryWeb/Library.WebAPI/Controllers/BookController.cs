@@ -2,7 +2,7 @@
 using Library.Core.Dtos;
 using Library.Core.Interfaces;
 using Library.Core.ViewDto;
-using Library.Data.Models;
+using Library.Core.ViewDtos;
 using Library.WebAPI.Mapper;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
@@ -124,5 +124,21 @@ public class BookController : ControllerBase
         }
     }
 
-    
+    [HttpPost]
+    [Route("~/api/HandOutBook")]
+    public async Task<IActionResult> HandOutBook([FromBody] BookLoanViewDto bookLoanViewDto)
+    {
+        try
+        {
+            var bookLoanDto = ViewDtoToDtoMapper.Mapper.Map<BookLoanDto>(bookLoanViewDto);
+            var response = await _bookService.HandOutBookAsync(bookLoanDto);
+            var apiResult = ApiResult<BookLoanDto>.Success(response);
+            return Ok(apiResult);
+        }
+        catch (Exception ex)
+        {
+            var apiResult = ApiResult<BookLoanDto>.Failure(new [] { ex.Message });
+            return Problem(detail: JsonSerializer.Serialize(apiResult));
+        }
+    }
 }

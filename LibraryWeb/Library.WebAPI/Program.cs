@@ -11,11 +11,29 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
-        // Add services to the container.
+        builder.Configuration.Sources.Clear();
+
+        builder.Configuration
+            .SetBasePath(Path.Combine(Directory.GetCurrentDirectory(), "..\\Library.Data\\Context"))
+            .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+            .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", optional: true, reloadOnChange: true)
+            .AddEnvironmentVariables();
+
         builder.Services.AddDbContext<ApplicationDBContext>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
         
         builder.Services.AddControllers();
+
+        // Add CORS policy (allow specific or all origins)
+        builder.Services.AddCors(options =>
+        {
+            options.AddPolicy("AllowAllOrigins", builder =>
+            {
+                builder.AllowAnyOrigin() // This allows any domain (if security is not a concern)
+                       .AllowAnyMethod() // This allows all HTTP methods (GET, POST, etc.)
+                       .AllowAnyHeader(); // This allows all headers (for custom headers like Authorization)
+            });
+        });
 
         builder.Services.AddRepositories();
 
@@ -28,6 +46,15 @@ public class Program
         builder.Services.AddSwaggerGen();
 
         var app = builder.Build();
+
+        // Enable CORS
+        app.UseCors("AllowAllOrigins");
+
+        // Configure the HTTP request pipeline.
+        if (app.Environment.IsDevelopment())
+        {
+            app.UseDeveloperExceptionPage();
+        }
 
         // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())
