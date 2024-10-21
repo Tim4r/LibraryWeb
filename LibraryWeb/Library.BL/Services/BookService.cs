@@ -49,6 +49,12 @@ public class BookService : IBookService
             throw new ArgumentException("Category with ID does not exist");
         }
 
+        if (!string.IsNullOrEmpty(book.Image))
+        {
+            string imagePath = SaveImage(book.Image);
+            bookToCreate.Image = imagePath;
+        }
+
         await _bookRepository.CreateBookAsync(bookToCreate);
         _bookRepository.SaveChanges();
         return ModelToDtoMapper.Mapper.Map<BookDto>(_context.Entry(bookToCreate).Entity);
@@ -57,6 +63,13 @@ public class BookService : IBookService
     public async Task<BookDto> UpdateBookAsync(int id, BookDto book)
     {
         var bookToUpdate = ModelToDtoMapper.Mapper.Map<Book>(book);
+
+        if(!string.IsNullOrEmpty(book.Image)) 
+        {
+            string imagePath = SaveImage(book.Image);
+            bookToUpdate.Image = imagePath;
+        }
+
         var updatedBook = await _bookRepository.UpdateBookAsync(id, bookToUpdate);
         return ModelToDtoMapper.Mapper.Map<BookDto>(updatedBook);
     }
@@ -94,5 +107,17 @@ public class BookService : IBookService
         _bookRepository.SaveChanges();
 
         return ModelToDtoMapper.Mapper.Map<BookLoanDto>(newBookLoan);
+    }
+
+    public string SaveImage(string base64Image)
+    {
+        var imageBytes = Convert.FromBase64String(base64Image);
+
+        var fileName = $"{Guid.NewGuid()}.jpg";
+        var filePath = Path.Combine("Images", "BookCovers", fileName);
+
+        File.WriteAllBytes(filePath, imageBytes);
+
+        return $"/Images/BookCovers/{fileName}";
     }
 }
