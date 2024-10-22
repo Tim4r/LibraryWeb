@@ -1,4 +1,5 @@
-﻿using Library.Data.Context;
+﻿using Library.BL.Services;
+using Library.Data.Context;
 using Library.Data.Repository;
 using Library.Data.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -17,5 +18,6 @@ public static class ServiceCollectionExtension
     {
         serviceCollection.AddScoped<IUserRepository, UserRepository>();
         serviceCollection.AddScoped<IBookRepository, BookRepository>();
+        serviceCollection.AddScoped<IAuthorRepository, AuthorRepository>();
     }
 }

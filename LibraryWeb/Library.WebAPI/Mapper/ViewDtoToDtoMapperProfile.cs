@@ -12,5 +12,6 @@ public class ViewDtoToDtoMapperProfile : Profile
         CreateMap<BookViewDto, BookDto>().ReverseMap();
         CreateMap<UserViewDto, UserDto>().ReverseMap();
         CreateMap<BookLoanViewDto, BookLoanDto>().ReverseMap();
+        CreateMap<AuthorViewDto, AuthorDto>().ReverseMap();
     }
 }

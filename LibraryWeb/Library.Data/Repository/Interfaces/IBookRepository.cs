@@ -12,5 +12,5 @@ public interface IBookRepository
     Task<Book> DeleteBookAsync(int id);
     Task<BookLoan> CreateBookLoanAsync(BookLoan bookLoan);
     
-    void SaveChanges();
+    Task SaveChangesAsync();
 }

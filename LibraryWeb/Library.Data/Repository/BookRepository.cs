@@ -31,8 +31,7 @@ public class BookRepository : IBookRepository
 
     public async Task<Book> CreateBookAsync(Book book)
     {
-        _context.Books.Add(book);
-        await _context.SaveChangesAsync();
+        await _context.Books.AddAsync(book);
         return _context.Entry(book).Entity;
     }
 
@@ -43,7 +42,6 @@ public class BookRepository : IBookRepository
         sourceBook.ISBN = book.ISBN;
         sourceBook.Description = book.Description;
         _context.Books.Update(sourceBook);
-        await _context.SaveChangesAsync();
         return sourceBook;
     }
 
@@ -51,19 +49,17 @@ public class BookRepository : IBookRepository
     {
         var book = _context.Books.FirstOrDefault(x => x.Id == id);
         var deletedBook = _context.Books.Remove(book).Entity;
-        await _context.SaveChangesAsync();
         return deletedBook;
     }
 
     public async Task<BookLoan> CreateBookLoanAsync(BookLoan bookLoan)
     {
-        _context.BookLoans.Add(bookLoan);
-        await _context.SaveChangesAsync();
+        await _context.BookLoans.AddAsync(bookLoan);
         return _context.Entry(bookLoan).Entity;
     }
 
-    public void SaveChanges()
+    public Task SaveChangesAsync()
     {
-        _context.SaveChanges();
+        return _context.SaveChangesAsync();
     }
 }

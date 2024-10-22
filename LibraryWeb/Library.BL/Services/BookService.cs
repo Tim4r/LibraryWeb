@@ -56,8 +56,8 @@ public class BookService : IBookService
         }
 
         await _bookRepository.CreateBookAsync(bookToCreate);
-        _bookRepository.SaveChanges();
-        return ModelToDtoMapper.Mapper.Map<BookDto>(_context.Entry(bookToCreate).Entity);
+        await _bookRepository.SaveChangesAsync();
+        return book;
     }
 
     public async Task<BookDto> UpdateBookAsync(int id, BookDto book)
@@ -71,12 +71,14 @@ public class BookService : IBookService
         }
 
         var updatedBook = await _bookRepository.UpdateBookAsync(id, bookToUpdate);
+        await _bookRepository.SaveChangesAsync();
         return ModelToDtoMapper.Mapper.Map<BookDto>(updatedBook);
     }
 
     public async Task<BookDto> DeleteBookAsync(int id)
     {
         var bookForDelete = await _bookRepository.DeleteBookAsync(id);
+        await _bookRepository.SaveChangesAsync();
         return ModelToDtoMapper.Mapper.Map<BookDto>(bookForDelete);
     }
 
@@ -104,7 +106,7 @@ public class BookService : IBookService
         newBookLoan.TakenTime = DateTime.Now;
 
         await _bookRepository.CreateBookLoanAsync(newBookLoan);
-        _bookRepository.SaveChanges();
+        await _bookRepository.SaveChangesAsync();
 
         return ModelToDtoMapper.Mapper.Map<BookLoanDto>(newBookLoan);
     }

@@ -10,5 +10,6 @@ public static class ServiceCollectionExtension
     {
         serviceCollection.AddScoped<IUserService, UserService>();
         serviceCollection.AddScoped<IBookService, BookService>();
+        serviceCollection.AddScoped<IAuthorService, AuthorService>();
     }
 }
