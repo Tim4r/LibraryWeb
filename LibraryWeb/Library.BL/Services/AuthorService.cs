@@ -32,4 +32,24 @@ public class AuthorService : IAuthorService
         await _authorRepository.SaveChangesAsync();
         return author;
     }
+
+    public async Task<AuthorDto> UpdateAuthorAsync(int id,  AuthorDto author)
+    {
+        var authorToUpdate = ModelToDtoMapper.Mapper.Map<Author>(author);
+        await _authorRepository.UpdateAuthorAsync(id, authorToUpdate);
+        await _authorRepository.SaveChangesAsync();
+        return author;
+    }
+
+    public async Task<AuthorDto> DeleteAuthorAsync(int id)
+    {
+        var authorForDelete = await _authorRepository.DeleteAuthorAsync(id);
+        await _authorRepository.SaveChangesAsync();
+        return ModelToDtoMapper.Mapper.Map<AuthorDto>(authorForDelete); 
+    }
+    //public async Task<AuthorDto> GetBooksByAuthorAsync(int id)
+    //{
+    //    var booksOfAuthor = await _authorRepository.GetBooksByAuthorAsync(id);
+    //    return await ModelToDtoMapper.Mapper.Map<AuthorDto>(booksOfAuthor);
+    //}
 }

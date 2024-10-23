@@ -1,10 +1,12 @@
 ﻿using Library.BL;
+using Library.BL.Mapper;
 using Library.Core.Dtos;
 using Library.Core.Interfaces;
 using Library.Core.ViewDtos;
 using Library.Data.Models;
 using Library.WebAPI.Mapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Identity.Client;
 using System.Text.Json;
 
 namespace Library.WebAPI.Controllers;
@@ -71,4 +73,56 @@ public class AuthorController : ControllerBase
             return Problem(detail: JsonSerializer.Serialize(apiResult));
         }
     }
+
+    [HttpPost]
+    [Route("~/api/UpdateAuthor")]
+    public async Task<IActionResult> UpdateAuthor(int id, [FromBody] AuthorViewDto authorViewDto)
+    {
+        try
+        {
+            var authorDto = ModelToDtoMapper.Mapper.Map<AuthorDto>(authorViewDto);
+            var response = await _authorService.UpdateAuthorAsync(id, authorDto);
+            var apiResult = ApiResult<AuthorDto>.Success(response);
+            return Ok(apiResult);
+        }
+        catch (Exception ex)
+        {
+            var apiResult = ApiResult<AuthorDto>.Failure(new[] { ex.Message });
+            return Problem(detail: JsonSerializer.Serialize(apiResult));
+        }
+    }
+
+    [HttpDelete]
+    [Route("~/api/DeleteAuthor")]
+    public async Task<IActionResult> DeleteAuthor(int id)
+    {
+        try
+        {
+            var response = await _authorService.DeleteAuthorAsync(id);
+            var apiResult = ApiResult<AuthorDto>.Success(response);
+            return Ok(apiResult);
+        }
+        catch (Exception ex) 
+        {
+            var apiResult = ApiResult<AuthorDto>.Failure(new[] { ex.Message });
+            return Problem(detail: JsonSerializer.Serialize(apiResult));
+        }
+    }
+
+    //[HttpGet]
+    //[Route("~/api/GetBooksByAuthor")]
+    //public async Task<IActionResult> GetBooksByAuthor(int id)
+    //{
+    //    try
+    //    {
+    //        var response = await _authorService.GetBooksByAuthorAsync(id);
+    //        var apiResult = ApiResult<AuthorDto>.Success(response);
+    //        return Ok(apiResult);
+    //    }
+    //    catch (Exception ex)
+    //    {
+    //        var apiResult = await _authorService.GetBooksByAuthorAsync(id);
+    //        return Problem(detail: JsonSerializer.Serialize(apiResult));
+    //    }
+    //}
 }

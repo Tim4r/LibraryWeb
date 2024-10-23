@@ -95,8 +95,8 @@ public class BookController : ControllerBase
     {
         try
         {
-            var book = ViewDtoToDtoMapper.Mapper.Map<BookDto>(bookViewDto);
-            var response = await _bookService.UpdateBookAsync(id, book);
+            var bookDto = ViewDtoToDtoMapper.Mapper.Map<BookDto>(bookViewDto);
+            var response = await _bookService.UpdateBookAsync(id, bookDto);
             var apiResult = ApiResult<BookDto>.Success(response);
             return Ok(apiResult);
         }

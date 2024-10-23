@@ -38,16 +38,19 @@ public class BookRepository : IBookRepository
     public async Task<Book> UpdateBookAsync(int id, Book book)
     {
         var sourceBook = await _context.Books.FirstOrDefaultAsync(x => x.Id == id);
-        sourceBook.Title = book.Title;
-        sourceBook.ISBN = book.ISBN;
-        sourceBook.Description = book.Description;
-        _context.Books.Update(sourceBook);
-        return sourceBook;
+
+        if (sourceBook != null)
+        {
+            sourceBook.Title = book.Title;
+            sourceBook.ISBN = book.ISBN;
+            sourceBook.Description = book.Description;
+        }
+        return book;
     }
 
     public async Task<Book> DeleteBookAsync(int id)
     {
-        var book = _context.Books.FirstOrDefault(x => x.Id == id);
+        var book = await _context.Books.FirstOrDefaultAsync(x => x.Id == id);
         var deletedBook = _context.Books.Remove(book).Entity;
         return deletedBook;
     }

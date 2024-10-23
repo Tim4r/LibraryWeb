@@ -26,6 +26,33 @@ public class AuthorRepository : IAuthorRepository
         return _context.Entry(author).Entity;
     }
 
+    public async Task<Author> UpdateAuthorAsync(int id, Author author)
+    {
+        var sourceAuthor = await _context.Authors.FirstOrDefaultAsync(x => x.Id == id);
+
+        if (sourceAuthor != null)
+        {
+            sourceAuthor.FirstName = author.FirstName;
+            sourceAuthor.LastName = author.LastName;
+            sourceAuthor.BirthDate = author.BirthDate;
+            sourceAuthor.Country = author.Country;
+        }
+        return author;
+    }
+
+    public async Task<Author> DeleteAuthorAsync(int id)
+    {
+        var author = await _context.Authors.FirstOrDefaultAsync(x => x.Id == id);
+        var deletedAuthor = _context.Authors.Remove(author).Entity;
+        return deletedAuthor;
+    }
+
+    //public async Task<IEnumerable<Book>> GetBooksByAuthorAsync(int id)
+    //{
+    //    var books = _context.Books.ToListAsync(x => x.BookId == id);
+    //    return books;
+    //}
+
     public Task SaveChangesAsync()
     {
         return _context.SaveChangesAsync();

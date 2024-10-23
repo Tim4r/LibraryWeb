@@ -70,9 +70,9 @@ public class BookService : IBookService
             bookToUpdate.Image = imagePath;
         }
 
-        var updatedBook = await _bookRepository.UpdateBookAsync(id, bookToUpdate);
+        await _bookRepository.UpdateBookAsync(id, bookToUpdate);
         await _bookRepository.SaveChangesAsync();
-        return ModelToDtoMapper.Mapper.Map<BookDto>(updatedBook);
+        return book;
     }
 
     public async Task<BookDto> DeleteBookAsync(int id)
