@@ -9,5 +9,6 @@ public interface IAuthorRepository
     Task<Author> CreateAuthorAsync(Author author);
     Task<Author> UpdateAuthorAsync(int id, Author author);
     Task<Author> DeleteAuthorAsync(int id);
+    Task<IEnumerable<Book>> GetBooksByAuthorAsync(int authorId);
     Task SaveChangesAsync();
 }

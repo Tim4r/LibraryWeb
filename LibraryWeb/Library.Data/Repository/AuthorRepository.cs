@@ -47,11 +47,13 @@ public class AuthorRepository : IAuthorRepository
         return deletedAuthor;
     }
 
-    //public async Task<IEnumerable<Book>> GetBooksByAuthorAsync(int id)
-    //{
-    //    var books = _context.Books.ToListAsync(x => x.BookId == id);
-    //    return books;
-    //}
+    public async Task<IEnumerable<Book>> GetBooksByAuthorAsync(int id)
+    {
+        var books = await _context.Books
+            .Where(x => x.AuthorId == id)
+            .ToListAsync();
+        return books;
+    }
 
     public Task SaveChangesAsync()
     {

@@ -6,7 +6,6 @@ using Library.Core.ViewDtos;
 using Library.Data.Models;
 using Library.WebAPI.Mapper;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Identity.Client;
 using System.Text.Json;
 
 namespace Library.WebAPI.Controllers;
@@ -109,20 +108,20 @@ public class AuthorController : ControllerBase
         }
     }
 
-    //[HttpGet]
-    //[Route("~/api/GetBooksByAuthor")]
-    //public async Task<IActionResult> GetBooksByAuthor(int id)
-    //{
-    //    try
-    //    {
-    //        var response = await _authorService.GetBooksByAuthorAsync(id);
-    //        var apiResult = ApiResult<AuthorDto>.Success(response);
-    //        return Ok(apiResult);
-    //    }
-    //    catch (Exception ex)
-    //    {
-    //        var apiResult = await _authorService.GetBooksByAuthorAsync(id);
-    //        return Problem(detail: JsonSerializer.Serialize(apiResult));
-    //    }
-    //}
+    [HttpGet]
+    [Route("~/api/GetBooksByAuthor")]
+    public async Task<IActionResult> GetBooksByAuthor(int id)
+    {
+        try
+        {
+            var response = await _authorService.GetBooksByAuthorAsync(id);
+            var apiResult = ApiResult<IEnumerable<BookDto>>.Success(response);
+            return Ok(apiResult);
+        }
+        catch (Exception ex)
+        {
+            var apiResult = ApiResult<IEnumerable<BookDto>>.Failure(new[] { ex.Message });
+            return Problem(detail: JsonSerializer.Serialize(apiResult));
+        }
+    }
 }
