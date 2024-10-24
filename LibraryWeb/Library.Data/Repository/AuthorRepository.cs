@@ -10,9 +10,12 @@ public class AuthorRepository : IAuthorRepository
     private readonly ApplicationDBContext _context;
     public AuthorRepository(ApplicationDBContext context) => _context = context;
 
-    public async Task<IEnumerable<Author>> GetAllAuthorsAsync()
+    public async Task<IEnumerable<Author>> GetAllAuthorsAsync(int pageNumber, int pageSize)
     {
-        return await _context.Authors.ToListAsync();
+        return await _context.Authors
+            .Skip((pageNumber - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
     }
 
     public async Task<Author> GetAuthorByIdAsync(int id)

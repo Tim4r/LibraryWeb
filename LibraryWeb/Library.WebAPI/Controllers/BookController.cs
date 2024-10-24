@@ -22,11 +22,11 @@ public class BookController : ControllerBase
 
     [HttpGet]
     [Route("~/api/GetAllBooks")]
-    public async Task<IActionResult> GetAllBooks()
+    public async Task<IActionResult> GetAllBooks(int pageNumber = 1, int pageSize = 10)
     {
         try
         {
-            var response = await _bookService.GetAllBooksAsync();
+            var response = await _bookService.GetAllBooksAsync(pageNumber, pageSize);
             var apiResult = ApiResult<IEnumerable<BookDto>>.Success(response);
             return Ok(apiResult);
         }

@@ -14,9 +14,9 @@ public class AuthorService : IAuthorService
         _unitOfWork = unitOfWork;
     }
 
-    public async Task<IEnumerable<AuthorDto>> GetAllAuthorsAsync()
+    public async Task<IEnumerable<AuthorDto>> GetAllAuthorsAsync(int pageNumber, int pageSize)
     {
-        var authors = await _unitOfWork.Authors.GetAllAuthorsAsync();
+        var authors = await _unitOfWork.Authors.GetAllAuthorsAsync(pageNumber, pageSize);
         return ModelToDtoMapper.Mapper.Map<IEnumerable<AuthorDto>>(authors);
     }
 

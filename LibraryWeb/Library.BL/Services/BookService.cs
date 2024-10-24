@@ -18,9 +18,9 @@ public class BookService : IBookService
         _context = context;
         _unitOfWork = unitOfWork;
     }
-    public async Task<IEnumerable<BookDto>> GetAllBooksAsync()
+    public async Task<IEnumerable<BookDto>> GetAllBooksAsync(int pageNumber, int pageSize)
     {
-        var books = await _unitOfWork.Books.GetAllBooksAsync();
+        var books = await _unitOfWork.Books.GetAllBooksAsync(pageNumber, pageSize);
         return ModelToDtoMapper.Mapper.Map<IEnumerable<BookDto>>(books);
     }
 

@@ -23,11 +23,11 @@ public class AuthorController : ControllerBase
 
     [HttpGet]
     [Route("~/api/GetAllAuthors")]
-    public async Task<IActionResult> GetAllAuthors()
+    public async Task<IActionResult> GetAllAuthors(int pageNumber = 1, int pageSize = 10)
     {
         try
         {
-            var response = await _authorService.GetAllAuthorsAsync();
+            var response = await _authorService.GetAllAuthorsAsync(pageNumber, pageSize);
             var apiResult = ApiResult<IEnumerable<AuthorDto>>.Success(response);
             return Ok(apiResult);
         }

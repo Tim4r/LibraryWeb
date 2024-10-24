@@ -11,9 +11,12 @@ public class BookRepository : IBookRepository
 
     public BookRepository(ApplicationDBContext context) => _context = context;
 
-    public async Task<IEnumerable<Book>> GetAllBooksAsync()
+    public async Task<IEnumerable<Book>> GetAllBooksAsync(int pageNumber, int pageSize)
     {
-        var booksList = await _context.Books.ToListAsync();
+        var booksList = await _context.Books
+            .Skip((pageNumber - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
         return booksList;
     } 
 
