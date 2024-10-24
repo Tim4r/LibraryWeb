@@ -1,9 +1,9 @@
 ﻿using Library.BL.Mapper;
 using Library.Core.Dtos;
 using Library.Core.Interfaces;
+using Library.Core.UnitOfWork;
 using Library.Data.Context;
 using Library.Data.Models;
-using Library.Data.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace Library.BL.Services;
@@ -11,27 +11,28 @@ namespace Library.BL.Services;
 public class BookService : IBookService
 {
     private readonly ApplicationDBContext _context;
-    private readonly IBookRepository _bookRepository;
-    public BookService(ApplicationDBContext context, IBookRepository bookRepository)
+    
+    private readonly IUnitOfWork _unitOfWork;
+    public BookService(ApplicationDBContext context, IUnitOfWork unitOfWork)
     {
         _context = context;
-        _bookRepository = bookRepository;
+        _unitOfWork = unitOfWork;
     }
     public async Task<IEnumerable<BookDto>> GetAllBooksAsync()
     {
-        var books = await _bookRepository.GetAllBooksAsync();
+        var books = await _unitOfWork.Books.GetAllBooksAsync();
         return ModelToDtoMapper.Mapper.Map<IEnumerable<BookDto>>(books);
     }
 
     public async Task<BookDto> GetBookByIdAsync(int id)
     {
-        var book = await _bookRepository.GetBookByIdAsync(id);
+        var book = await _unitOfWork.Books.GetBookByIdAsync(id);
         return ModelToDtoMapper.Mapper.Map<BookDto>(book);
     }
 
     public async Task<BookDto> GetBookByISBNAsync(string ISBN)
     {
-        var book = await _bookRepository.GetBookByISBNAsync(ISBN);
+        var book = await _unitOfWork.Books.GetBookByISBNAsync(ISBN);
         return ModelToDtoMapper.Mapper.Map<BookDto>(book);
     }
 
@@ -55,8 +56,8 @@ public class BookService : IBookService
             bookToCreate.Image = imagePath;
         }
 
-        await _bookRepository.CreateBookAsync(bookToCreate);
-        await _bookRepository.SaveChangesAsync();
+        await _unitOfWork.Books.CreateBookAsync(bookToCreate);
+        await _unitOfWork.Books.SaveChangesAsync();
         return book;
     }
 
@@ -70,15 +71,15 @@ public class BookService : IBookService
             bookToUpdate.Image = imagePath;
         }
 
-        await _bookRepository.UpdateBookAsync(id, bookToUpdate);
-        await _bookRepository.SaveChangesAsync();
+        await _unitOfWork.Books.UpdateBookAsync(id, bookToUpdate);
+        await _unitOfWork.Books.SaveChangesAsync();
         return book;
     }
 
     public async Task<BookDto> DeleteBookAsync(int id)
     {
-        var bookForDelete = await _bookRepository.DeleteBookAsync(id);
-        await _bookRepository.SaveChangesAsync();
+        var bookForDelete = await _unitOfWork.Books.DeleteBookAsync(id);
+        await _unitOfWork.Books.SaveChangesAsync();
         return ModelToDtoMapper.Mapper.Map<BookDto>(bookForDelete);
     }
 
@@ -105,8 +106,8 @@ public class BookService : IBookService
         var newBookLoan = ModelToDtoMapper.Mapper.Map<BookLoan>(bookLoan);
         newBookLoan.TakenTime = DateTime.Now;
 
-        await _bookRepository.CreateBookLoanAsync(newBookLoan);
-        await _bookRepository.SaveChangesAsync();
+        await _unitOfWork.Books.CreateBookLoanAsync(newBookLoan);
+        await _unitOfWork.Books.SaveChangesAsync();
 
         return ModelToDtoMapper.Mapper.Map<BookLoanDto>(newBookLoan);
     }
