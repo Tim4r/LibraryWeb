@@ -1,6 +1,7 @@
 using Library.Core.DependencyInjection;
 using Library.Data.Context;
 using Library.Data.DependencyInjection;
+using Library.WebAPI.Middleware;
 using Microsoft.EntityFrameworkCore;
 
 namespace Library.WebAPI;
@@ -46,6 +47,23 @@ public class Program
         builder.Services.AddSwaggerGen();
 
         var app = builder.Build();
+
+        app.UseMiddleware<ExceptionMiddleware>();
+
+        if (app.Environment.IsDevelopment())
+        {
+            app.UseDeveloperExceptionPage();
+        }
+
+        app.UseRouting();
+        app.UseIdentityServer();
+        app.UseAuthentication();
+        app.UseAuthorization();
+
+        app.UseEndpoints(endpoints =>
+        {
+            endpoints.MapControllers();
+        });
 
         // Enable CORS
         app.UseCors("AllowAllOrigins");

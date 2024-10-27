@@ -9,6 +9,6 @@ public class Book
     public string? Image { get; set; } = string.Empty;
     public int AuthorId { get; set; }
     public int CategoryId { get; set; }
-    public ICollection<BookLoan> BookLoans { get; set; }
-    public Book() => BookLoans = new List<BookLoan>();
+    
+    public BookLoan? BookLoan { get; set; }
 }

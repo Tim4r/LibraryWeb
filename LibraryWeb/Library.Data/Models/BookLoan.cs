@@ -7,4 +7,6 @@ public class BookLoan
     public DateTime ReturnTime { get; set; }
     public int UserId { get; set; }
     public int BookId { get; set; }
+
+    public Book Book { get; set; } = null!;
 }

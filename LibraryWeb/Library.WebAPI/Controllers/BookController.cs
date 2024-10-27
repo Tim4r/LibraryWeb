@@ -4,6 +4,7 @@ using Library.Core.Interfaces;
 using Library.Core.ViewDto;
 using Library.Core.ViewDtos;
 using Library.WebAPI.Mapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 
@@ -140,5 +141,12 @@ public class BookController : ControllerBase
             var apiResult = ApiResult<BookLoanDto>.Failure(new [] { ex.Message });
             return Problem(detail: JsonSerializer.Serialize(apiResult));
         }
+    }
+
+    [Authorize(Policy = "AdminOnly")]
+    [HttpGet("admin")]
+    public IActionResult AdminOnlyEndpoint()
+    {
+        return Ok("This is an admin-only endpoint.");
     }
 }

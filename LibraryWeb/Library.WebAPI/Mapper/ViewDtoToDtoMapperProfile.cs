@@ -10,7 +10,7 @@ public class ViewDtoToDtoMapperProfile : Profile
     public ViewDtoToDtoMapperProfile()
     {
         CreateMap<BookViewDto, BookDto>().ReverseMap();
-        CreateMap<UserViewDto, UserDto>().ReverseMap();
+        CreateMap<UserViewDto, RegisterDto>().ReverseMap();
         CreateMap<BookLoanViewDto, BookLoanDto>().ReverseMap();
         CreateMap<AuthorViewDto, AuthorDto>().ReverseMap();
     }
