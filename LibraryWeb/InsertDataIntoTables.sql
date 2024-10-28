@@ -40,14 +40,13 @@ VALUES
 ('Absurdism');
 
 
-INSERT INTO Users (Login, PasswordHash, PasswordSalt, Email)
+INSERT INTO AspNetUsers (UserName, PasswordHash, PasswordSalt, Email, NormalizedUserName, NormalizedEmail, EmailConfirmed, SecurityStamp, ConcurrencyStamp, PhoneNumber, PhoneNumberConfirmed, TwoFactorEnabled, LockoutEnd, LockoutEnabled, AccessFailedCount)
 VALUES 
-('timanders', '$4b$12$eKCMOqOBkWQrVzRtUyYxuC', '$2b$21$eJnMOqXNkWQrVzRtOyYxuQ', 'timanders@gmail.com'),
-('janedoe', '$3b$20$eJCMLqXNkWQrVzRtUyYxuD', '$2b$12$eJCMOqBNkWQrVzRtUyYxuF', 'jane@gmail.com'),
-('michaeljordan', '$2b$12$eJCMOqXNkWQrVzRtUyYxuF', '$2b$21$eJnMOqiNkWQrVzRtUyYxuQ', 'mj@gmail.com'),
-('emmataylor', '$2b$14$eJCMOQxNkWQrVzRtUyYxuO', '$2b$14$eJCMOQxNkWQrVzRtUyYxuO', 'emma@yahoo.com'),
-('davidlee', '$2b$21$eJnMOqXNkWQrVzRtUyYxuQ', '$2b$12$eBCbOqXjkWQrVzRtUyYxuF', 'david@hotmail.com');
-
+('Maxim', '+P9dkjlWSqDfnEQecuh7YklDyXrVqNQwpnKEgDGphxMDpliFFjWyPQKr3uDpDw==', '', 'maximka@mail.ru', 'MAXIM', 'MAXIMKA@MAIL.RU', 'False', 'KEMVD7XCEIMTZXEA7C6PDNMO5OCQD5IG', '9f357a2fe789', NULL, 'False', 'False', NULL, 'True', 0),
+('Volodko', 'AQAAAAIAAYagAAAAEGtRJC9uFJKIDjqz26yV19CPiw4L7UAijSW1bhLqkA1GiblrreoHlBO6TJWGpG7I0A==', '', 'Volodko.Email.ru', 'VOLODKO', 'VOLODKO.EMAIL.RU', 'False', '5ZPE5OLFRSQXI52MSXXDKCK34E3XGTNT', '7d143ab665cf', NULL, 'False', 'False', NULL, 'True', 0),
+('Sidskaya', '+xDvDLbwXCV7Bpc/tjUdYykOgVdRDXokqiw/94pWNXoz5Q==', '', 'Sidskaya.Email.ru', 'SIDSKAYA', 'SIDSKAYA.EMAIL.RU', 'False', 'HNKFPC2HEEGKWELXF4OKVTV6D52Z24AV', '9401e36fc093', NULL, 'False', 'False', NULL, 'True', 0),
+('Pavlov', 'AQAAAAIAAYagAAAAEOfEQ37kjQ06Fo6b6TM0WtzM4YEroTqQnLRGvhG06GIZJzkSiIthNMgBCctgHS9cwQ==', '', 'Pavlov.Email.ru', 'PAVLOV', 'PAVLOV.EMAIL.RU', 'False', 'I465GBQJRFOOQ2LA6GNZOGTCI55NKBB5', '928bdd461bc2', NULL, 'False', 'False', NULL, 'True', 0),
+('Vasuhnevish', 'AQAAAAIAAYagAAAAEOK9XXMc74dAo96eWkUzqACvs48hR2iQrLUxmFaMDE8bhzn8sSbZyLSaAbUYhirCoQ==', '', 'Vasuhnevish.Email.ru', 'VASUHNEVISH', 'VASUHNEVISH.EMAIL.RU', 'False', 'RTDQ4X5CAEIKFX2IVABG7IOBNOAWE2QI', 'ae601aca12f4', NULL, 'False', 'False', NULL, 'True', 0);
 
 INSERT INTO Books (Title, ISBN, Description, Image, AuthorId, CategoryId)
 VALUES 
@@ -77,13 +76,13 @@ VALUES
 
 INSERT INTO BookLoans (TakenTime, ReturnTime, UserId, BookId)
 VALUES 
-('2023-01-01', '2023-01-15', 1, 3),
-('2023-01-02', '2023-01-16', 4, 4),
-('2023-01-03', '2023-01-17', 3, 5),
-('2023-01-04', '2023-01-18', 1, 11),
-('2023-01-05', '2023-01-19', 2, 8),
-('2023-01-06', '2023-01-20', 4, 10),
-('2023-01-07', '2023-01-21', 5, 21),
-('2023-01-08', '2023-01-22', 2, 15),
-('2023-01-09', '2023-01-23', 5, 16),
-('2023-01-10', '2023-01-24', 1, 22);
+('2023-01-01', '2023-01-15', 7, 3),
+('2023-01-02', '2023-01-16', 8, 4),
+('2023-01-03', '2023-01-17', 9, 5),
+('2023-01-04', '2023-01-18', 10, 11),
+('2023-01-05', '2023-01-19', 11, 8),
+('2023-01-06', '2023-01-20', 7, 10),
+('2023-01-07', '2023-01-21', 8, 21),
+('2023-01-08', '2023-01-22', 9, 15),
+('2023-01-09', '2023-01-23', 10, 16),
+('2023-01-10', '2023-01-24', 11, 22);

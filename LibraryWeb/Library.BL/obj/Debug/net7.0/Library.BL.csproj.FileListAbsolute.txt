@@ -27,5 +27,4 @@ D:\Repositories\LibraryWeb\LibraryWeb\Library.BL\obj\Debug\net7.0\Library.BL.dll
 D:\Repositories\LibraryWeb\LibraryWeb\Library.BL\obj\Debug\net7.0\refint\Library.BL.dll
 D:\Repositories\LibraryWeb\LibraryWeb\Library.BL\obj\Debug\net7.0\Library.BL.pdb
 D:\Repositories\LibraryWeb\LibraryWeb\Library.BL\obj\Debug\net7.0\ref\Library.BL.dll
-D:\Repositories\LibraryWeb\LibraryWeb\Library.BL\obj\Debug\net7.0\Library.BL.sourcelink.json
-D:\Repositories\LibraryWeb\LibraryWeb\Library.BL\obj\Debug\net7.0\Library.BL.csproj.Up2Date
+D:\Repositories\LibraryWeb\LibraryWeb\Library.BL\obj\Debug\net7.0\Library.BL.csproj.CopyComplete
