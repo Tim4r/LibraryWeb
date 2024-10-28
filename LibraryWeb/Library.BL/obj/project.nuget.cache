@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "pqIAlVN7xwAAO82M1ZHveQrtI4P1W6qYxv4o3EDqNLyc1G/FVwzw3/JRKaPRa9s/ja4ZCpkKvb+jCpFtcF9/yA==",
+  "dgSpecHash": "xLmSvkhd6EzZtLBE+1pNP3y8njAOg2qzvxS6idaomRsWJz5ugCyI2jtDiWOGrApAzDUAWtY/vJAftHm4TgWsuA==",
   "success": true,
   "projectFilePath": "D:\\Repositories\\LibraryWeb\\LibraryWeb\\Library.BL\\Library.BL.csproj",
   "expectedPackageFiles": [
@@ -84,7 +84,10 @@
     "C:\\Users\\gendu\\.nuget\\packages\\system.text.encodings.web\\8.0.0\\system.text.encodings.web.8.0.0.nupkg.sha512",
     "C:\\Users\\gendu\\.nuget\\packages\\system.text.json\\8.0.5\\system.text.json.8.0.5.nupkg.sha512",
     "C:\\Users\\gendu\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
-    "C:\\Users\\gendu\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
+    "C:\\Users\\gendu\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512",
+    "C:\\Users\\gendu\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.16\\microsoft.netcore.app.ref.7.0.16.nupkg.sha512",
+    "C:\\Users\\gendu\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.16\\microsoft.windowsdesktop.app.ref.7.0.16.nupkg.sha512",
+    "C:\\Users\\gendu\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.16\\microsoft.aspnetcore.app.ref.7.0.16.nupkg.sha512"
   ],
   "logs": [
     {

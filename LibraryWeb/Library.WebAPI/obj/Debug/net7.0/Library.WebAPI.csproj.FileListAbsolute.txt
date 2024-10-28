@@ -77,13 +77,6 @@ D:\Repositories\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\refint\Library.WebAPI
 D:\Repositories\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\Library.WebAPI.pdb
 D:\Repositories\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\Library.WebAPI.genruntimeconfig.cache
 D:\Repositories\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\ref\Library.WebAPI.dll
-D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\Library.WebAPI.csproj.AssemblyReference.cache
-D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\Library.WebAPI.GeneratedMSBuildEditorConfig.editorconfig
-D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\Library.WebAPI.AssemblyInfoInputs.cache
-D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\Library.WebAPI.AssemblyInfo.cs
-D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\Library.WebAPI.csproj.CoreCompileInputs.cache
-D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\Library.WebAPI.MvcApplicationPartsAssemblyInfo.cs
-D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\Library.WebAPI.MvcApplicationPartsAssemblyInfo.cache
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\Context\appsettings.Development.json
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\Context\appsettings.json
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\Library.WebAPI.exe
@@ -96,7 +89,6 @@ D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\AutoMapper
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\Azure.Core.dll
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\Azure.Identity.dll
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\BCrypt.Net-Next.dll
-D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\Castle.Core.dll
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\Duende.IdentityServer.dll
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\Duende.IdentityServer.AspNetIdentity.dll
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\Duende.IdentityServer.EntityFramework.dll
@@ -117,7 +109,6 @@ D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\Microsoft.
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\Microsoft.Data.SqlClient.dll
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.InMemory.dll
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Relational.dll
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.SqlServer.dll
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\Microsoft.Extensions.Configuration.dll
@@ -144,7 +135,6 @@ D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\Microsoft.
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\Microsoft.OpenApi.dll
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\Microsoft.SqlServer.Server.dll
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\Microsoft.Win32.SystemEvents.dll
-D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\Moq.dll
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\Newtonsoft.Json.dll
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
@@ -159,10 +149,6 @@ D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\System.Sec
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\System.Text.Encodings.Web.dll
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\System.Text.Json.dll
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\System.Windows.Extensions.dll
-D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\xunit.abstractions.dll
-D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\xunit.assert.dll
-D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\xunit.core.dll
-D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\xunit.execution.dotnet.dll
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
@@ -182,6 +168,13 @@ D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\Library.Da
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\Library.BL.pdb
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\Library.Core.pdb
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\bin\Debug\net7.0\Library.Data.pdb
+D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\Library.WebAPI.csproj.AssemblyReference.cache
+D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\Library.WebAPI.GeneratedMSBuildEditorConfig.editorconfig
+D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\Library.WebAPI.AssemblyInfoInputs.cache
+D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\Library.WebAPI.AssemblyInfo.cs
+D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\Library.WebAPI.csproj.CoreCompileInputs.cache
+D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\Library.WebAPI.MvcApplicationPartsAssemblyInfo.cs
+D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\Library.WebAPI.MvcApplicationPartsAssemblyInfo.cache
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\staticwebassets\msbuild.Library.WebAPI.Microsoft.AspNetCore.StaticWebAssets.props
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\staticwebassets\msbuild.build.Library.WebAPI.props
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.Library.WebAPI.props
@@ -195,4 +188,5 @@ D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\refint\Lib
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\Library.WebAPI.pdb
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\Library.WebAPI.genruntimeconfig.cache
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\ref\Library.WebAPI.dll
-D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\Library.WebAPI.csproj.CopyComplete
+D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\Library.WebAPI.sourcelink.json
+D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\Library..66E39ECB.Up2Date
