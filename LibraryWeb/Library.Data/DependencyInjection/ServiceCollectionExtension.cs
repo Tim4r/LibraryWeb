@@ -16,8 +16,7 @@ public static class ServiceCollectionExtension
     }
 
     public static void AddRepositories(this IServiceCollection serviceCollection)
-    {
-        serviceCollection.AddScoped<IUserRepository, UserRepository>();
+    { 
         serviceCollection.AddScoped<IBookRepository, BookRepository>();
         serviceCollection.AddScoped<IAuthorRepository, AuthorRepository>();
         serviceCollection.AddScoped<IUnitOfWork, UnitOfWork>();

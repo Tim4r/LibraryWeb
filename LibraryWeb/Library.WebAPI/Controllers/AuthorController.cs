@@ -1,12 +1,9 @@
-﻿using Library.BL;
-using Library.BL.Mapper;
+﻿using Library.BL.Mapper;
 using Library.Core.Dtos;
 using Library.Core.Interfaces;
 using Library.Core.ViewDtos;
-using Library.Data.Models;
 using Library.WebAPI.Mapper;
 using Microsoft.AspNetCore.Mvc;
-using System.Text.Json;
 
 namespace Library.WebAPI.Controllers;
 
@@ -25,103 +22,49 @@ public class AuthorController : ControllerBase
     [Route("~/api/GetAllAuthors")]
     public async Task<IActionResult> GetAllAuthors(int pageNumber = 1, int pageSize = 10)
     {
-        try
-        {
-            var response = await _authorService.GetAllAuthorsAsync(pageNumber, pageSize);
-            var apiResult = ApiResult<IEnumerable<AuthorDto>>.Success(response);
-            return Ok(apiResult);
-        }
-        catch (Exception ex)
-        {
-            var apiResult = ApiResult<AuthorDto>.Failure(new[] { ex.Message });
-            return Problem(detail: JsonSerializer.Serialize(apiResult));
-        }
+        var response = await _authorService.GetAllAuthorsAsync(pageNumber, pageSize);
+        return Ok(response);
     }
 
     [HttpGet]
     [Route("~/api/GetAuthorById")]
     public async Task<IActionResult> GetAuthorById(int id)
     {
-        try
-        {
-            var response = await _authorService.GetAuthorByIdAsync(id);
-            var apiResult = ApiResult<AuthorDto>.Success(response);
-            return Ok(apiResult);
-        }
-        catch (Exception ex)
-        {
-            var apiResult = ApiResult<Author>.Failure(new[] { ex.Message });
-            return Problem(detail: JsonSerializer.Serialize(apiResult));
-        }
+        var response = await _authorService.GetAuthorByIdAsync(id);
+        return Ok(response);
     }
 
     [HttpPost]
     [Route("~/api/CreateAuthor")]
     public async Task<IActionResult> CreateAuthor([FromBody] AuthorViewDto authorViewDto)
     {
-        try
-        {
-            var authorDto = ViewDtoToDtoMapper.Mapper.Map<AuthorDto>(authorViewDto);
-            var response = await _authorService.CreateAuthorAsync(authorDto);
-            var apiResult = ApiResult<AuthorDto>.Success(response);
-            return Ok(apiResult);
-        } 
-        catch (Exception ex) 
-        { 
-            var apiResult = ApiResult<AuthorDto>.Failure(new[] { ex.Message });
-            return Problem(detail: JsonSerializer.Serialize(apiResult));
-        }
+        var authorDto = ViewDtoToDtoMapper.Mapper.Map<AuthorDto>(authorViewDto);
+        var response = await _authorService.CreateAuthorAsync(authorDto);
+        return Ok(response);
     }
 
     [HttpPost]
     [Route("~/api/UpdateAuthor")]
     public async Task<IActionResult> UpdateAuthor(int id, [FromBody] AuthorViewDto authorViewDto)
     {
-        try
-        {
-            var authorDto = ModelToDtoMapper.Mapper.Map<AuthorDto>(authorViewDto);
-            var response = await _authorService.UpdateAuthorAsync(id, authorDto);
-            var apiResult = ApiResult<AuthorDto>.Success(response);
-            return Ok(apiResult);
-        }
-        catch (Exception ex)
-        {
-            var apiResult = ApiResult<AuthorDto>.Failure(new[] { ex.Message });
-            return Problem(detail: JsonSerializer.Serialize(apiResult));
-        }
+        var authorDto = ModelToDtoMapper.Mapper.Map<AuthorDto>(authorViewDto);
+        var response = await _authorService.UpdateAuthorAsync(id, authorDto);
+        return Ok(response);
     }
 
     [HttpDelete]
     [Route("~/api/DeleteAuthor")]
     public async Task<IActionResult> DeleteAuthor(int id)
     {
-        try
-        {
-            var response = await _authorService.DeleteAuthorAsync(id);
-            var apiResult = ApiResult<AuthorDto>.Success(response);
-            return Ok(apiResult);
-        }
-        catch (Exception ex) 
-        {
-            var apiResult = ApiResult<AuthorDto>.Failure(new[] { ex.Message });
-            return Problem(detail: JsonSerializer.Serialize(apiResult));
-        }
+        var response = await _authorService.DeleteAuthorAsync(id);
+        return Ok(response);
     }
 
     [HttpGet]
     [Route("~/api/GetBooksByAuthor")]
     public async Task<IActionResult> GetBooksByAuthor(int id)
     {
-        try
-        {
-            var response = await _authorService.GetBooksByAuthorAsync(id);
-            var apiResult = ApiResult<IEnumerable<BookDto>>.Success(response);
-            return Ok(apiResult);
-        }
-        catch (Exception ex)
-        {
-            var apiResult = ApiResult<IEnumerable<BookDto>>.Failure(new[] { ex.Message });
-            return Problem(detail: JsonSerializer.Serialize(apiResult));
-        }
+        var response = await _authorService.GetBooksByAuthorAsync(id);
+        return Ok(response);
     }
 }

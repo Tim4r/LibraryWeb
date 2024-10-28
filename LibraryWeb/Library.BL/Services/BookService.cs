@@ -91,12 +91,6 @@ public class BookService : IBookService
             throw new ArgumentException("Book with the provided ID does not exist.");
         }
 
-        //var userExists = await _context.Users.AnyAsync(u => u.Id == bookLoan.UserId);
-        //if (!userExists)
-        //{
-        //    throw new ArgumentException("User with the provided ID does not exist.");
-        //}
-
         var isBookLoaned = await _context.BookLoans.AnyAsync(bl => bl.BookId == bookLoan.BookId);
         if (isBookLoaned)
         {
