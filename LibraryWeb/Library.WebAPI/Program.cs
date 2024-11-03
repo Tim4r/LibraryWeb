@@ -55,6 +55,9 @@ public class Program
             app.UseDeveloperExceptionPage();
         }
 
+        // Enable CORS
+        app.UseCors("AllowAllOrigins");
+
         app.UseRouting();
         app.UseIdentityServer();
         app.UseAuthentication();
@@ -64,9 +67,6 @@ public class Program
         {
             endpoints.MapControllers();
         });
-
-        // Enable CORS
-        app.UseCors("AllowAllOrigins");
 
         // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())
@@ -82,7 +82,7 @@ public class Program
         }
 
         app.UseHttpsRedirection();
-        app.UseAuthorization();
+
         app.MapControllers();
 
         app.Run();
