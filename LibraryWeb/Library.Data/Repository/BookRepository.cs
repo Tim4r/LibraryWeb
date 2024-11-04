@@ -11,12 +11,31 @@ public class BookRepository : IBookRepository
 
     public BookRepository(ApplicationDBContext context) => _context = context;
 
-    public async Task<IEnumerable<Book>> GetAllBooksAsync(int pageNumber, int pageSize)
+    public async Task<IEnumerable<Book>> GetAllBooksAsync(
+        int pageNumber, 
+        int pageSize,
+        int? authorId,
+        int? categoryId,
+        string? searchQuery)
     {
-        var booksList = await _context.Books
+        var query = _context.Books.AsQueryable();
+
+        if (authorId.HasValue)
+        {
+            query = query.Where(b => b.AuthorId == authorId.Value);
+        }
+
+        if (categoryId.HasValue)
+            query = query.Where(b => b.CategoryId == categoryId.Value);
+
+        if (!string.IsNullOrEmpty(searchQuery))
+            query = query.Where(b => b.Title.Contains(searchQuery));
+
+        var booksList = await query
             .Skip((pageNumber - 1) * pageSize)
             .Take(pageSize)
             .ToListAsync();
+
         return booksList;
     } 
 

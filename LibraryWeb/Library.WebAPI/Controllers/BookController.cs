@@ -21,9 +21,14 @@ public class BookController : ControllerBase
 
     [HttpGet]
     [Route("~/api/GetAllBooks")]
-    public async Task<IActionResult> GetAllBooks(int pageNumber = 1, int pageSize = 10)
+    public async Task<IActionResult> GetAllBooks(
+        int pageNumber = 1, 
+        int pageSize = 10,
+        int? authorId = null,
+        int? categoryId = null,
+        string? searchQuery = null)
     {
-        var response = await _bookService.GetAllBooksAsync(pageNumber, pageSize);
+        var response = await _bookService.GetAllBooksAsync(pageNumber, pageSize, authorId, categoryId, searchQuery);
         return Ok(response);
     }
 
