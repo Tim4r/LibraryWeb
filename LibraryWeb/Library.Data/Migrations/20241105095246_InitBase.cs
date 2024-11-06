@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Library.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class ItitDatabase : Migration
+    public partial class InitBase : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

@@ -20,7 +20,6 @@ VALUES
 ('Ngugi wa', 'Thiong o', '1938-01-05', 'Kenya'),
 ('Miguel Angel', 'Asturias', '1899-10-19', 'Guatemala');
 
-
 INSERT INTO Categories (Genre)
 VALUES 
 ('Fantasy'),
@@ -38,15 +37,6 @@ VALUES
 ('Surrealist Fiction'),
 ('Environmental Fiction'),
 ('Absurdism');
-
-
-INSERT INTO AspNetUsers (UserName, PasswordHash, PasswordSalt, Email, NormalizedUserName, NormalizedEmail, EmailConfirmed, SecurityStamp, ConcurrencyStamp, PhoneNumber, PhoneNumberConfirmed, TwoFactorEnabled, LockoutEnd, LockoutEnabled, AccessFailedCount)
-VALUES 
-('Maxim', '+P9dkjlWSqDfnEQecuh7YklDyXrVqNQwpnKEgDGphxMDpliFFjWyPQKr3uDpDw==', '', 'maximka@mail.ru', 'MAXIM', 'MAXIMKA@MAIL.RU', 'False', 'KEMVD7XCEIMTZXEA7C6PDNMO5OCQD5IG', '9f357a2fe789', NULL, 'False', 'False', NULL, 'True', 0),
-('Volodko', 'AQAAAAIAAYagAAAAEGtRJC9uFJKIDjqz26yV19CPiw4L7UAijSW1bhLqkA1GiblrreoHlBO6TJWGpG7I0A==', '', 'Volodko.Email.ru', 'VOLODKO', 'VOLODKO.EMAIL.RU', 'False', '5ZPE5OLFRSQXI52MSXXDKCK34E3XGTNT', '7d143ab665cf', NULL, 'False', 'False', NULL, 'True', 0),
-('Sidskaya', '+xDvDLbwXCV7Bpc/tjUdYykOgVdRDXokqiw/94pWNXoz5Q==', '', 'Sidskaya.Email.ru', 'SIDSKAYA', 'SIDSKAYA.EMAIL.RU', 'False', 'HNKFPC2HEEGKWELXF4OKVTV6D52Z24AV', '9401e36fc093', NULL, 'False', 'False', NULL, 'True', 0),
-('Pavlov', 'AQAAAAIAAYagAAAAEOfEQ37kjQ06Fo6b6TM0WtzM4YEroTqQnLRGvhG06GIZJzkSiIthNMgBCctgHS9cwQ==', '', 'Pavlov.Email.ru', 'PAVLOV', 'PAVLOV.EMAIL.RU', 'False', 'I465GBQJRFOOQ2LA6GNZOGTCI55NKBB5', '928bdd461bc2', NULL, 'False', 'False', NULL, 'True', 0),
-('Vasuhnevish', 'AQAAAAIAAYagAAAAEOK9XXMc74dAo96eWkUzqACvs48hR2iQrLUxmFaMDE8bhzn8sSbZyLSaAbUYhirCoQ==', '', 'Vasuhnevish.Email.ru', 'VASUHNEVISH', 'VASUHNEVISH.EMAIL.RU', 'False', 'RTDQ4X5CAEIKFX2IVABG7IOBNOAWE2QI', 'ae601aca12f4', NULL, 'False', 'False', NULL, 'True', 0);
 
 INSERT INTO Books (Title, ISBN, Description, Image, AuthorId, CategoryId)
 VALUES 
@@ -73,16 +63,30 @@ VALUES
 ('The Remains of the Day', '9780399159926', 'Novel by Kazuo Ishiguro exploring the life of a butler reflecting on his decades-long service at an English estate.', NULL, 14, 2),
 ('The Brief History of the Dead', '9781594200705', 'Novel by Kevin Brockmeier exploring an afterlife where souls exist in a vast library.', NULL, 19, 4);
 
+INSERT INTO AspNetUsers (UserName, PasswordHash, PasswordSalt, Email, NormalizedUserName, NormalizedEmail, EmailConfirmed, SecurityStamp, ConcurrencyStamp, PhoneNumber, PhoneNumberConfirmed, TwoFactorEnabled, LockoutEnd, LockoutEnabled, AccessFailedCount)
+VALUES 
+('Denis', 'AQAAAAIAAYagAAAAENe3wvuT2R5/bFGwydlEL6Elft/pTEWWVML4K+NyHjvGUGkiigJ3CkxPsVKuzYlnPA==', '', 'Qwerty123@mail.ru', 'DENIS', 'QWERTY123@MAIL.RU', 'False', 'KEMVD7XCEIMTZXEA7C6PDNMO5OCQD5IG', '9f357a2fe789', NULL, 'False', 'False', NULL, 'True', 0),
+('Anton', 'AQAAAAIAAYagAAAAEFAm4UHPiz3NH8XJlo8evnNVjCs+1BLQH0KEx7RckQGTscIwUiD0hdRu8l1yfR5TyQ==', '', 'Qwerty123@mail.ru', 'ANTON', 'QWERTY123@MAIL.RU', 'False', 'OLNIUQ7NTGS6D74TXCHQTKIAAKX4U3PU', '47c4cabf-3db5-46c5-bcfc-7724c0cb761d', NULL, 'False', 'False', NULL, 'True', 0);
+
+INSERT INTO AspNetRoles (Name)
+VALUES 
+('User'),
+('Admin');
+
+INSERT INTO AspNetUserRoles (UserId, RoleId)
+VALUES
+(1, 1),
+(2, 2);
 
 INSERT INTO BookLoans (TakenTime, ReturnTime, UserId, BookId)
 VALUES 
-('2023-01-01', '2023-01-15', 7, 3),
-('2023-01-02', '2023-01-16', 8, 4),
-('2023-01-03', '2023-01-17', 9, 5),
-('2023-01-04', '2023-01-18', 10, 11),
-('2023-01-05', '2023-01-19', 11, 8),
-('2023-01-06', '2023-01-20', 7, 10),
-('2023-01-07', '2023-01-21', 8, 21),
-('2023-01-08', '2023-01-22', 9, 15),
-('2023-01-09', '2023-01-23', 10, 16),
-('2023-01-10', '2023-01-24', 11, 22);
+('2023-01-01', '2023-01-15', 1, 1),
+('2023-01-02', '2023-01-16', 2, 2),
+('2023-01-03', '2023-01-17', 1, 3),
+('2023-01-04', '2023-01-18', 2, 4),
+('2023-01-05', '2023-01-19', 1, 5),
+('2023-01-06', '2023-01-20', 2, 6),
+('2023-01-07', '2023-01-21', 1, 7),
+('2023-01-08', '2023-01-22', 2, 8),
+('2023-01-09', '2023-01-23', 1, 9),
+('2023-01-10', '2023-01-24', 2, 10);
