@@ -1,14 +1,17 @@
 using Library.Core.DependencyInjection;
 using Library.Data.Context;
 using Library.Data.DependencyInjection;
+using Library.Data.Models;
 using Library.WebAPI.Middleware;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
 
 namespace Library.WebAPI;
 
 public class Program
 {
-    public static void Main(string[] args)
+    public static async Task Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
 
@@ -48,6 +51,12 @@ public class Program
 
         var app = builder.Build();
 
+        using (var scope = app.Services.CreateScope())
+        {
+            var services = scope.ServiceProvider;
+            await SeedRolesAsync(services); // Call role seeding method at startup
+        }
+
         app.UseMiddleware<ExceptionMiddleware>();
 
         if (app.Environment.IsDevelopment())
@@ -86,5 +95,19 @@ public class Program
         app.MapControllers();
 
         app.Run();
+    }
+
+    private static async Task SeedRolesAsync(IServiceProvider serviceProvider)
+    {
+        var roleManager = serviceProvider.GetRequiredService<RoleManager<Role>>();
+
+        string[] roleNames = { "User", "Admin" };
+        foreach (var roleName in roleNames)
+        {
+            if (!await roleManager.RoleExistsAsync(roleName))
+            {
+                await roleManager.CreateAsync(new Role { Name = roleName });
+            }
+        }
     }
 }

@@ -1,5 +1,4 @@
-﻿using Duende.IdentityServer.Stores.Serialization;
-using Library.Core.Dtos;
+﻿using Library.Core.Dtos;
 using Library.Data.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -26,11 +25,20 @@ public class AuthentificationController : ControllerBase
     [HttpPost("Register")]
     public async Task<IActionResult> Register([FromBody] RegisterDto registerDto)
     {
+        var userResult = await _userManager.FindByNameAsync(registerDto.Username);
+        if (userResult != null) 
+            return BadRequest("A user with this login already exists. Please, change the login to a unique one!");
+
         var user = new User { UserName = registerDto.Username, Email = registerDto.Email };
-        var result = await _userManager.CreateAsync(user, registerDto.Password);
-        if (!result.Succeeded)
-            return BadRequest(result.Errors);
-        return Ok();
+        var resultUserCreation = await _userManager.CreateAsync(user, registerDto.Password);
+        if (!resultUserCreation.Succeeded)
+            return BadRequest(resultUserCreation.Errors);
+
+        var resultAddUserRole = await _userManager.AddToRoleAsync(user, "User");
+        if (!resultAddUserRole.Succeeded)
+            return BadRequest(resultAddUserRole.Errors);
+
+        return Ok("User registered successfully and role assigned!");
     }
 
     [HttpPost("Login")]
@@ -38,32 +46,36 @@ public class AuthentificationController : ControllerBase
     {
         var result = await _signInManager.PasswordSignInAsync(loginDto.Username, loginDto.Password, false, false);
         if (!result.Succeeded)
-            return Unauthorized();
+            return Unauthorized("Invalid username or password!");
 
         var user = await _userManager.FindByNameAsync(loginDto.Username);
         var roles = await _userManager.GetRolesAsync(user);
-        var tokenHandler = new JwtSecurityTokenHandler();
-        var key = Encoding.ASCII.GetBytes("YourSuperSecretKeyYourSuperSecretKey");
+        var userRole = roles.FirstOrDefault();
+
+        if (userRole == null)
+            return Unauthorized("User does not have an assigned role!");
 
         var claims = new List<Claim>
         {
             new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-            new Claim(ClaimTypes.Name, user.UserName)
+            new Claim(ClaimTypes.Name, user.UserName),
+            new Claim(ClaimTypes.Role, userRole)
         };
 
-        foreach (var role in roles) 
-        { 
-            claims.Add(new Claim(ClaimTypes.Role, role));
-        }
-
+        var key = Encoding.ASCII.GetBytes("YourSuperSecretKeyYourSuperSecretKey");
         var tokenDescriptor = new SecurityTokenDescriptor
         {
             Subject = new ClaimsIdentity(claims),
-            Expires = DateTime.UtcNow.AddDays(7),
-            SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+            Expires = DateTime.UtcNow.AddDays(1),
+            SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature),
+            Issuer = "YourIssuer",
+            Audience = "YourAudience"
         };
 
+        var tokenHandler = new JwtSecurityTokenHandler();
         var token = tokenHandler.CreateToken(tokenDescriptor);
-        return Ok(new { Token = tokenHandler.WriteToken(token), Roles = roles });
+        var tokenString = tokenHandler.WriteToken(token);
+
+        return Ok(new { Token = tokenString, Roles = roles });
     }
 }

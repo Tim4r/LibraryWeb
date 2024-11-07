@@ -68,10 +68,10 @@ VALUES
 ('Denis', 'AQAAAAIAAYagAAAAENe3wvuT2R5/bFGwydlEL6Elft/pTEWWVML4K+NyHjvGUGkiigJ3CkxPsVKuzYlnPA==', '', 'Qwerty123@mail.ru', 'DENIS', 'QWERTY123@MAIL.RU', 'False', 'KEMVD7XCEIMTZXEA7C6PDNMO5OCQD5IG', '9f357a2fe789', NULL, 'False', 'False', NULL, 'True', 0),
 ('Anton', 'AQAAAAIAAYagAAAAEFAm4UHPiz3NH8XJlo8evnNVjCs+1BLQH0KEx7RckQGTscIwUiD0hdRu8l1yfR5TyQ==', '', 'Qwerty123@mail.ru', 'ANTON', 'QWERTY123@MAIL.RU', 'False', 'OLNIUQ7NTGS6D74TXCHQTKIAAKX4U3PU', '47c4cabf-3db5-46c5-bcfc-7724c0cb761d', NULL, 'False', 'False', NULL, 'True', 0);
 
-INSERT INTO AspNetRoles (Name)
+INSERT INTO AspNetRoles (Name, NormalizedName)
 VALUES 
-('User'),
-('Admin');
+('User', 'USER'),
+('Admin', 'ADMIN');
 
 INSERT INTO AspNetUserRoles (UserId, RoleId)
 VALUES

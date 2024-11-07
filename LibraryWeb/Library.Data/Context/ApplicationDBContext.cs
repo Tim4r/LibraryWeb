@@ -20,6 +20,10 @@ public class ApplicationDBContext : IdentityDbContext<User, Role, int>
             .WithOne(bl => bl.Book)
             .HasForeignKey<BookLoan>(bl => bl.BookId);
 
+        modelBuilder.Entity<User>()
+            .HasIndex(u => u.UserName)
+            .IsUnique();
+
         base.OnModelCreating(modelBuilder);
     }
 }

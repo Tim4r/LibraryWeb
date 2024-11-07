@@ -18,7 +18,11 @@ public static class ServiceCollectionExtension
         serviceCollection.AddScoped<IBookService, BookService>();
         serviceCollection.AddScoped<IAuthorService, AuthorService>();
 
-        serviceCollection.AddIdentity<User, Role>()
+        serviceCollection.AddIdentity<User, Role> (options =>
+        {
+            options.Password.RequireDigit = true;
+            options.Password.RequiredLength = 6;
+        })
             .AddEntityFrameworkStores<ApplicationDBContext>()
             .AddDefaultTokenProviders();
 
@@ -34,6 +38,7 @@ public static class ServiceCollectionExtension
             options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
             options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
         })
+
         .AddJwtBearer(options =>
         {
             options.TokenValidationParameters = new TokenValidationParameters
