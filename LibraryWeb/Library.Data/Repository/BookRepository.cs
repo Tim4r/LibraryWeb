@@ -21,12 +21,10 @@ public class BookRepository : IBookRepository
         var query = _context.Books.AsQueryable();
 
         if (authorId.HasValue)
-        {
             query = query.Where(b => b.AuthorId == authorId.Value);
-        }
 
         if (categoryId.HasValue)
-            query = query.Where(b => b.CategoryId == categoryId.Value);
+            query = query.Where(b => b.GenreId == categoryId.Value);
 
         if (!string.IsNullOrEmpty(searchQuery))
             query = query.Where(b => b.Title.Contains(searchQuery));

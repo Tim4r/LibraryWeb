@@ -8,7 +8,7 @@ public class Book
     public string Description { get; set; } = string.Empty;
     public string? Image { get; set; } = string.Empty;
     public int AuthorId { get; set; }
-    public int CategoryId { get; set; }
+    public int GenreId { get; set; }
     
     public BookLoan? BookLoan { get; set; }
 }

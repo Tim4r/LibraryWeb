@@ -20,7 +20,7 @@ VALUES
 ('Ngugi wa', 'Thiong o', '1938-01-05', 'Kenya'),
 ('Miguel Angel', 'Asturias', '1899-10-19', 'Guatemala');
 
-INSERT INTO Categories (Genre)
+INSERT INTO Genres (Name)
 VALUES 
 ('Fantasy'),
 ('Science Fiction'),
@@ -38,7 +38,7 @@ VALUES
 ('Environmental Fiction'),
 ('Absurdism');
 
-INSERT INTO Books (Title, ISBN, Description, Image, AuthorId, CategoryId)
+INSERT INTO Books (Title, ISBN, Description, Image, AuthorId, GenreId)
 VALUES 
 ('Harry Potter and the Philosopher''s Stone', '9780747532699', 'The first book in J.K. Rowling''s beloved Harry Potter series.', NULL, 1, 1),
 ('A Game of Thrones', '9780553573404', 'The first book in George R.R. Martin''s A Song of Ice and Fire series.', NULL, 2, 1),

@@ -183,9 +183,9 @@ D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\staticweba
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\staticwebassets.build.json
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\staticwebassets.development.json
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\scopedcss\bundle\Library.WebAPI.styles.css
+D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\Library.WebAPI.csproj.CopyComplete
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\Library.WebAPI.dll
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\refint\Library.WebAPI.dll
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\Library.WebAPI.pdb
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\Library.WebAPI.genruntimeconfig.cache
 D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\ref\Library.WebAPI.dll
-D:\Repositories\LibraryWeb\LibraryWeb\Library.WebAPI\obj\Debug\net7.0\Library.WebAPI.csproj.CopyComplete

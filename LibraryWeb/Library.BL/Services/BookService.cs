@@ -18,6 +18,7 @@ public class BookService : IBookService
         _context = context;
         _unitOfWork = unitOfWork;
     }
+
     public async Task<IEnumerable<BookDto>> GetAllBooksAsync(
         int pageNumber, 
         int pageSize, 
@@ -27,6 +28,12 @@ public class BookService : IBookService
     {
         var books = await _unitOfWork.Books.GetAllBooksAsync(pageNumber, pageSize, authorId, categoryId, searchQuery);
         return ModelToDtoMapper.Mapper.Map<IEnumerable<BookDto>>(books);
+    }
+
+    public async Task<IEnumerable<GenreDto>> GetAllGenresOfBooksAsync()
+    {
+        var genres = await _unitOfWork.Genres.GetAllGenresOfBooksAsync();
+        return ModelToDtoMapper.Mapper.Map<IEnumerable<GenreDto>>(genres);
     }
 
     public async Task<BookDto> GetBookByIdAsync(int id)
@@ -50,7 +57,7 @@ public class BookService : IBookService
             throw new ArgumentException("Author with ID does not exist");
         }
 
-        if (!_context.Categories.Any(c => c.Id == bookToCreate.CategoryId))
+        if (!_context.Genres.Any(c => c.Id == bookToCreate.GenreId))
         {
             throw new ArgumentException("Category with ID does not exist");
         }

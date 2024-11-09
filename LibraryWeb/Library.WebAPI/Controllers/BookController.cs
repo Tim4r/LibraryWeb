@@ -33,6 +33,14 @@ public class BookController : ControllerBase
     }
 
     [HttpGet]
+    [Route("~/api/GetAllGenresOfBooks")]
+    public async Task<IActionResult> GetAllGenresOfBooks()
+    {
+        var response = await _bookService.GetAllGenresOfBooksAsync();
+        return Ok(response);
+    }
+
+    [HttpGet]
     [Route("~/api/GetBookById")]
     public async Task<IActionResult> GetBookById(int id)
     {
@@ -82,12 +90,5 @@ public class BookController : ControllerBase
         var bookLoanDto = ViewDtoToDtoMapper.Mapper.Map<BookLoanDto>(bookLoanViewDto);
         var response = await _bookService.HandOutBookAsync(bookLoanDto);
         return Ok(response);
-    }
-
-    [Authorize(Policy = "AdminOnly")]
-    [HttpGet("admin")]
-    public IActionResult AdminOnlyEndpoint()
-    {
-        return Ok("This is an admin-only endpoint.");
     }
 }

@@ -19,6 +19,7 @@ public static class ServiceCollectionExtension
     { 
         serviceCollection.AddScoped<IBookRepository, BookRepository>();
         serviceCollection.AddScoped<IAuthorRepository, AuthorRepository>();
+        serviceCollection.AddScoped<IGenreRepository, GenreRepository>();
         serviceCollection.AddScoped<IUnitOfWork, UnitOfWork>();
     }
 }

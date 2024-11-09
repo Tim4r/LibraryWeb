@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Library.Data.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20241105095246_InitBase")]
-    partial class InitBase
+    [Migration("20241109123206_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -64,12 +64,12 @@ namespace Library.Data.Migrations
                     b.Property<int>("AuthorId")
                         .HasColumnType("int");
 
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("GenreId")
+                        .HasColumnType("int");
 
                     b.Property<string>("ISBN")
                         .IsRequired()
@@ -86,7 +86,7 @@ namespace Library.Data.Migrations
 
                     b.HasIndex("AuthorId");
 
-                    b.HasIndex("CategoryId");
+                    b.HasIndex("GenreId");
 
                     b.ToTable("Books");
                 });
@@ -121,7 +121,7 @@ namespace Library.Data.Migrations
                     b.ToTable("BookLoans");
                 });
 
-            modelBuilder.Entity("Library.Data.Models.Category", b =>
+            modelBuilder.Entity("Library.Data.Models.Genre", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -129,13 +129,13 @@ namespace Library.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Genre")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Genres");
                 });
 
             modelBuilder.Entity("Library.Data.Models.Role", b =>
@@ -236,6 +236,10 @@ namespace Library.Data.Migrations
                         .IsUnique()
                         .HasDatabaseName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.HasIndex("UserName")
+                        .IsUnique()
+                        .HasFilter("[UserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
                 });
@@ -351,9 +355,9 @@ namespace Library.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Library.Data.Models.Category", null)
+                    b.HasOne("Library.Data.Models.Genre", null)
                         .WithMany("Books")
-                        .HasForeignKey("CategoryId")
+                        .HasForeignKey("GenreId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -436,7 +440,7 @@ namespace Library.Data.Migrations
                     b.Navigation("BookLoan");
                 });
 
-            modelBuilder.Entity("Library.Data.Models.Category", b =>
+            modelBuilder.Entity("Library.Data.Models.Genre", b =>
                 {
                     b.Navigation("Books");
                 });

@@ -51,12 +51,6 @@ public class Program
 
         var app = builder.Build();
 
-        using (var scope = app.Services.CreateScope())
-        {
-            var services = scope.ServiceProvider;
-            await SeedRolesAsync(services); // Call role seeding method at startup
-        }
-
         app.UseMiddleware<ExceptionMiddleware>();
 
         if (app.Environment.IsDevelopment())
@@ -95,19 +89,5 @@ public class Program
         app.MapControllers();
 
         app.Run();
-    }
-
-    private static async Task SeedRolesAsync(IServiceProvider serviceProvider)
-    {
-        var roleManager = serviceProvider.GetRequiredService<RoleManager<Role>>();
-
-        string[] roleNames = { "User", "Admin" };
-        foreach (var roleName in roleNames)
-        {
-            if (!await roleManager.RoleExistsAsync(roleName))
-            {
-                await roleManager.CreateAsync(new Role { Name = roleName });
-            }
-        }
     }
 }

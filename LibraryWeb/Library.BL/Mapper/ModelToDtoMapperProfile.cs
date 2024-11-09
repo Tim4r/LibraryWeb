@@ -12,5 +12,6 @@ public class ModelToDtoMapperProfile : Profile
         CreateMap<User, RegisterDto>().ReverseMap();
         CreateMap<BookLoan, BookLoanDto>().ReverseMap();
         CreateMap<Author, AuthorDto>().ReverseMap();
+        CreateMap<Genre, GenreDto>().ReverseMap();
     }
 }
