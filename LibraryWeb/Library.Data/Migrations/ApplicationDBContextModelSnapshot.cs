@@ -48,6 +48,160 @@ namespace Library.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Authors");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            BirthDate = new DateTime(1965, 7, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Country = "United Kingdom",
+                            FirstName = "J.K.",
+                            LastName = "Rowling"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            BirthDate = new DateTime(1948, 9, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Country = "United States",
+                            FirstName = "George R.R.",
+                            LastName = "Martin"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            BirthDate = new DateTime(1953, 9, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Country = "United States",
+                            FirstName = "Stephen",
+                            LastName = "King"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            BirthDate = new DateTime(1892, 1, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Country = "United Kingdom",
+                            FirstName = "J.R.R.",
+                            LastName = "Tolkien"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            BirthDate = new DateTime(1926, 4, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Country = "United States",
+                            FirstName = "Harper",
+                            LastName = "Lee"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            BirthDate = new DateTime(1775, 12, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Country = "England",
+                            FirstName = "Jane",
+                            LastName = "Austen"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            BirthDate = new DateTime(1812, 2, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Country = "England",
+                            FirstName = "Charles",
+                            LastName = "Dickens"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            BirthDate = new DateTime(1828, 8, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Country = "Russia",
+                            FirstName = "Leo",
+                            LastName = "Tolstoy"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            BirthDate = new DateTime(1882, 1, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Country = "England",
+                            FirstName = "Virginia",
+                            LastName = "Woolf"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            BirthDate = new DateTime(1990, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Country = "Canada",
+                            FirstName = "Gabriel",
+                            LastName = "Ansley"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            BirthDate = new DateTime(1975, 10, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Country = "United Kingdom",
+                            FirstName = "Zadie",
+                            LastName = "Smith"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            BirthDate = new DateTime(1936, 11, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Country = "United States",
+                            FirstName = "Don",
+                            LastName = "DeLillo"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            BirthDate = new DateTime(1939, 11, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Country = "Canada",
+                            FirstName = "Margaret",
+                            LastName = "Atwood"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            BirthDate = new DateTime(1954, 11, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Country = "Japan/United Kingdom",
+                            FirstName = "Kazuo",
+                            LastName = "Ishiguro"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            BirthDate = new DateTime(1931, 7, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Country = "Canada",
+                            FirstName = "Alice",
+                            LastName = "Munro"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            BirthDate = new DateTime(1947, 6, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Country = "India/United Kingdom",
+                            FirstName = "Salman",
+                            LastName = "Rushdie"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            BirthDate = new DateTime(1952, 6, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Country = "Turkey",
+                            FirstName = "Orhan",
+                            LastName = "Pamuk"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            BirthDate = new DateTime(1938, 1, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Country = "Kenya",
+                            FirstName = "Ngugi wa",
+                            LastName = "Thiong o"
+                        },
+                        new
+                        {
+                            Id = 19,
+                            BirthDate = new DateTime(1899, 10, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Country = "Guatemala",
+                            FirstName = "Miguel Angel",
+                            LastName = "Asturias"
+                        });
                 });
 
             modelBuilder.Entity("Library.Data.Models.Book", b =>
@@ -86,6 +240,206 @@ namespace Library.Data.Migrations
                     b.HasIndex("GenreId");
 
                     b.ToTable("Books");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AuthorId = 1,
+                            Description = "The first book in J.K. Rowling's beloved Harry Potter series.",
+                            GenreId = 1,
+                            ISBN = "9780747532699",
+                            Title = "Harry Potter and the Philosopher's Stone"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AuthorId = 2,
+                            Description = "The first book in George R.R. Martin's A Song of Ice and Fire series.",
+                            GenreId = 1,
+                            ISBN = "9780553573404",
+                            Title = "A Game of Thrones"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            AuthorId = 3,
+                            Description = "A psychological horror novel by Stephen King about a writer held captive by his 'number one fan'.",
+                            GenreId = 5,
+                            ISBN = "9780743454651",
+                            Title = "Misery"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            AuthorId = 4,
+                            Description = "High fantasy adventure novel by J.R.R. Tolkien.",
+                            GenreId = 1,
+                            ISBN = "9780261103301",
+                            Title = "The Lord of the Rings"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            AuthorId = 5,
+                            Description = "Classic novel exploring racial injustice through the eyes of a young girl in the Deep South.",
+                            GenreId = 2,
+                            ISBN = "9780061120084",
+                            Title = "To Kill a Mockingbird"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            AuthorId = 6,
+                            Description = "Romantic novel of manners by Jane Austen.",
+                            GenreId = 2,
+                            ISBN = "9780743273565",
+                            Title = "Pride and Prejudice"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            AuthorId = 7,
+                            Description = "Classic Victorian-era novel about a poor orphan who falls in with a gang of pickpockets in London.",
+                            GenreId = 3,
+                            ISBN = "9780743274562",
+                            Title = "Oliver Twist"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            AuthorId = 8,
+                            Description = "Epic historical novel by Leo Tolstoy set during the Napoleonic Wars.",
+                            GenreId = 3,
+                            ISBN = "9780743273565",
+                            Title = "War and Peace"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            AuthorId = 9,
+                            Description = "Modernist novel by Virginia Woolf exploring life in post-World War I England.",
+                            GenreId = 2,
+                            ISBN = "9780241954719",
+                            Title = "Mrs Dalloway"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            AuthorId = 10,
+                            Description = "Modern magical realist novel by Gabriel Ansley about Dominican-American identity.",
+                            GenreId = 6,
+                            ISBN = "9780374158177",
+                            Title = "The Brief Wondrous Life of Oscar Wao"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            AuthorId = 11,
+                            Description = "Satirical novel by Zadie Smith exploring multiculturalism in post-war London.",
+                            GenreId = 2,
+                            ISBN = "9780312421135",
+                            Title = "White Teeth"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            AuthorId = 12,
+                            Description = "Postmodern epic novel by Don DeLillo spanning several decades of American history.",
+                            GenreId = 4,
+                            ISBN = "9780679767877",
+                            Title = "Underworld"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            AuthorId = 13,
+                            Description = "Dystopian novel by Margaret Atwood exploring a patriarchal society.",
+                            GenreId = 1,
+                            ISBN = "9780553283685",
+                            Title = "The Handmaid's Tale"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            AuthorId = 14,
+                            Description = "Haunting novel by Kazuo Ishiguro exploring the lives of three friends at an English boarding school.",
+                            GenreId = 2,
+                            ISBN = "9780099500736",
+                            Title = "Never Let Me Go"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            AuthorId = 1,
+                            Description = "Sixth book in the Harry Potter series by J.K. Rowling.",
+                            GenreId = 1,
+                            ISBN = "9780439708180",
+                            Title = "Half-Blood Prince"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            AuthorId = 15,
+                            Description = "Novel by Arundhati Roy exploring the intertwined lives of twins growing up in Kerala, India.",
+                            GenreId = 2,
+                            ISBN = "9781782115514",
+                            Title = "The God of Small Things"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            AuthorId = 16,
+                            Description = "Novel by Jhumpa Lahiri exploring the experiences of Indian immigrants in New York City.",
+                            GenreId = 2,
+                            ISBN = "9781400033416",
+                            Title = "The Namesake"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            AuthorId = 17,
+                            Description = "Haunting novel by Toni Morrison exploring the legacy of slavery and its effects on African Americans.",
+                            GenreId = 5,
+                            ISBN = "9780743273565",
+                            Title = "Beloved"
+                        },
+                        new
+                        {
+                            Id = 19,
+                            AuthorId = 18,
+                            Description = "Novel by Khaled Hosseini exploring friendship, betrayal, and redemption in Afghanistan.",
+                            GenreId = 2,
+                            ISBN = "9780747584585",
+                            Title = "The Kite Runner"
+                        },
+                        new
+                        {
+                            Id = 20,
+                            AuthorId = 19,
+                            Description = "Post-apocalyptic novel by Cormac McCarthy exploring a father-son journey through a devastated America.",
+                            GenreId = 4,
+                            ISBN = "9780307276750",
+                            Title = "The Road"
+                        },
+                        new
+                        {
+                            Id = 21,
+                            AuthorId = 14,
+                            Description = "Novel by Kazuo Ishiguro exploring the life of a butler reflecting on his decades-long service at an English estate.",
+                            GenreId = 2,
+                            ISBN = "9780399159926",
+                            Title = "The Remains of the Day"
+                        },
+                        new
+                        {
+                            Id = 22,
+                            AuthorId = 19,
+                            Description = "Novel by Kevin Brockmeier exploring an afterlife where souls exist in a vast library.",
+                            GenreId = 4,
+                            ISBN = "9781594200705",
+                            Title = "The Brief History of the Dead"
+                        });
                 });
 
             modelBuilder.Entity("Library.Data.Models.BookLoan", b =>
@@ -116,6 +470,88 @@ namespace Library.Data.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("BookLoans");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            BookId = 1,
+                            ReturnTime = new DateTime(2023, 1, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TakenTime = new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            BookId = 2,
+                            ReturnTime = new DateTime(2023, 1, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TakenTime = new DateTime(2023, 1, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = 2
+                        },
+                        new
+                        {
+                            Id = 3,
+                            BookId = 3,
+                            ReturnTime = new DateTime(2023, 1, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TakenTime = new DateTime(2023, 1, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = 1
+                        },
+                        new
+                        {
+                            Id = 4,
+                            BookId = 4,
+                            ReturnTime = new DateTime(2023, 1, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TakenTime = new DateTime(2023, 1, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = 2
+                        },
+                        new
+                        {
+                            Id = 5,
+                            BookId = 5,
+                            ReturnTime = new DateTime(2023, 1, 19, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TakenTime = new DateTime(2023, 1, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = 1
+                        },
+                        new
+                        {
+                            Id = 6,
+                            BookId = 6,
+                            ReturnTime = new DateTime(2023, 1, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TakenTime = new DateTime(2023, 1, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = 2
+                        },
+                        new
+                        {
+                            Id = 7,
+                            BookId = 7,
+                            ReturnTime = new DateTime(2023, 1, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TakenTime = new DateTime(2023, 1, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = 1
+                        },
+                        new
+                        {
+                            Id = 8,
+                            BookId = 8,
+                            ReturnTime = new DateTime(2023, 1, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TakenTime = new DateTime(2023, 1, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = 2
+                        },
+                        new
+                        {
+                            Id = 9,
+                            BookId = 9,
+                            ReturnTime = new DateTime(2023, 1, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TakenTime = new DateTime(2023, 1, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = 1
+                        },
+                        new
+                        {
+                            Id = 10,
+                            BookId = 10,
+                            ReturnTime = new DateTime(2023, 1, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TakenTime = new DateTime(2023, 1, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = 2
+                        });
                 });
 
             modelBuilder.Entity("Library.Data.Models.Genre", b =>
@@ -133,6 +569,83 @@ namespace Library.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Genres");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Fantasy"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Science Fiction"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Literary Fiction"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "Historical Fiction"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Name = "Horror"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Name = "Romantic Comedy"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Name = "Crime Fiction"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Name = "Philosophical Fiction"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Name = "Magical Realism"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Name = "Postmodern Literature"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Name = "Epistolary Novel"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Name = "Cyberpunk"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Name = "Surrealist Fiction"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Name = "Environmental Fiction"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Name = "Absurdism"
+                        });
                 });
 
             modelBuilder.Entity("Library.Data.Models.Role", b =>
@@ -163,6 +676,20 @@ namespace Library.Data.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "User",
+                            NormalizedName = "USER"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        });
                 });
 
             modelBuilder.Entity("Library.Data.Models.User", b =>
@@ -239,6 +766,42 @@ namespace Library.Data.Migrations
                         .HasFilter("[UserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "9f357a2fe789",
+                            Email = "Qwerty123@mail.ru",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "QWERTY123@MAIL.RU",
+                            NormalizedUserName = "DENIS",
+                            PasswordHash = "AQAAAAIAAYagAAAAENe3wvuT2R5/bFGwydlEL6Elft/pTEWWVML4K+NyHjvGUGkiigJ3CkxPsVKuzYlnPA==",
+                            PasswordSalt = "",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "KEMVD7XCEIMTZXEA7C6PDNMO5OCQD5IG",
+                            TwoFactorEnabled = false,
+                            UserName = "Denis"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "47c4cabf-3db5-46c5-bcfc-7724c0cb761d",
+                            Email = "Qwerty123@mail.ru",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "QWERTY123@MAIL.RU",
+                            NormalizedUserName = "ANTON",
+                            PasswordHash = "AQAAAAIAAYagAAAAEFAm4UHPiz3NH8XJlo8evnNVjCs+1BLQH0KEx7RckQGTscIwUiD0hdRu8l1yfR5TyQ==",
+                            PasswordSalt = "",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "OLNIUQ7NTGS6D74TXCHQTKIAAKX4U3PU",
+                            TwoFactorEnabled = false,
+                            UserName = "Anton"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
@@ -323,6 +886,18 @@ namespace Library.Data.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = 1,
+                            RoleId = 1
+                        },
+                        new
+                        {
+                            UserId = 2,
+                            RoleId = 2
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<int>", b =>
