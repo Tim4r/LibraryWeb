@@ -4,6 +4,7 @@ using Library.Core.Interfaces;
 using Library.Core.UnitOfWork;
 using Library.Data.Context;
 using Library.Data.Models;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
 
 namespace Library.BL.Services;
@@ -116,6 +117,14 @@ public class BookService : IBookService
         await _unitOfWork.Books.SaveChangesAsync();
 
         return ModelToDtoMapper.Mapper.Map<BookLoanDto>(newBookLoan);
+    }
+
+    public async Task<IEnumerable<BookOnHand>> GetBookLoansByUserIdAsync(int userId)
+    {
+        var bookLoans = await _unitOfWork.Books.GetBookLoansByUserIdAsync(userId);
+        if (bookLoans == null || !bookLoans.Any())
+            throw new InvalidOperationException("You don't have any books.");
+        return bookLoans;
     }
 
     public string SaveImage(string base64Image)

@@ -11,4 +11,5 @@ public class Book
     public int GenreId { get; set; }
     
     public BookLoan? BookLoan { get; set; }
+    public Author? Author { get; set; }
 }

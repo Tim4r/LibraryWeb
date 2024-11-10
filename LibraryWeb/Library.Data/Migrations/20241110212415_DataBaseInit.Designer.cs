@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Library.Data.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20241109153928_UpdateUserRoleToInt")]
-    partial class UpdateUserRoleToInt
+    [Migration("20241110212415_DataBaseInit")]
+    partial class DataBaseInit
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -448,10 +448,7 @@ namespace Library.Data.Migrations
             modelBuilder.Entity("Library.Data.Models.BookLoan", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<int>("BookId")
                         .HasColumnType("int");
@@ -466,9 +463,6 @@ namespace Library.Data.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("BookId")
-                        .IsUnique();
 
                     b.HasIndex("UserId");
 
@@ -924,7 +918,7 @@ namespace Library.Data.Migrations
 
             modelBuilder.Entity("Library.Data.Models.Book", b =>
                 {
-                    b.HasOne("Library.Data.Models.Author", null)
+                    b.HasOne("Library.Data.Models.Author", "Author")
                         .WithMany("Books")
                         .HasForeignKey("AuthorId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -935,13 +929,15 @@ namespace Library.Data.Migrations
                         .HasForeignKey("GenreId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Author");
                 });
 
             modelBuilder.Entity("Library.Data.Models.BookLoan", b =>
                 {
                     b.HasOne("Library.Data.Models.Book", "Book")
                         .WithOne("BookLoan")
-                        .HasForeignKey("Library.Data.Models.BookLoan", "BookId")
+                        .HasForeignKey("Library.Data.Models.BookLoan", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

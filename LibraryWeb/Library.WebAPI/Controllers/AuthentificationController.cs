@@ -76,6 +76,6 @@ public class AuthentificationController : ControllerBase
         var token = tokenHandler.CreateToken(tokenDescriptor);
         var tokenString = tokenHandler.WriteToken(token);
 
-        return Ok(new { Token = tokenString, Roles = roles });
+        return Ok(new { Token = tokenString });
     }
 }

@@ -2,7 +2,4 @@
 
 namespace Library.Data.Models;
 
-public class Role : IdentityRole<int>
-{
-
-}
+public class Role : IdentityRole<int> { }

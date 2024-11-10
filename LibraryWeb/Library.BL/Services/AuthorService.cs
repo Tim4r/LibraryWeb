@@ -48,6 +48,7 @@ public class AuthorService : IAuthorService
         await _unitOfWork.Authors.SaveChangesAsync();
         return ModelToDtoMapper.Mapper.Map<AuthorDto>(authorForDelete); 
     }
+
     public async Task<IEnumerable<BookDto>> GetBooksByAuthorAsync(int id)
     {
         var booksOfAuthor = await _unitOfWork.Authors.GetBooksByAuthorAsync(id);

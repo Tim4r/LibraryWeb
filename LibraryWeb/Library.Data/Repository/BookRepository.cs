@@ -1,4 +1,5 @@
-﻿using Library.Data.Context;
+﻿using Library.Core.Dtos;
+using Library.Data.Context;
 using Library.Data.Models;
 using Library.Data.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -79,6 +80,22 @@ public class BookRepository : IBookRepository
     {
         await _context.BookLoans.AddAsync(bookLoan);
         return _context.Entry(bookLoan).Entity;
+    }
+
+    public async Task<IEnumerable<BookOnHand>> GetBookLoansByUserIdAsync(int userId)
+    {
+        var bookLoans = await _context.BookLoans
+            .Where(bl => bl.UserId == userId)
+            .Select(bl => new BookOnHand
+            {
+                Title = bl.Book.Title,
+                Image = bl.Book.Image,
+                FirstName = bl.Book.Author.FirstName,
+                LastName = bl.Book.Author.LastName,
+                ReturnTime = bl.ReturnTime
+            })
+            .ToListAsync();
+        return bookLoans;
     }
 
     public Task SaveChangesAsync()

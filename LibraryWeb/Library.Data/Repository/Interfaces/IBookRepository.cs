@@ -1,4 +1,5 @@
-﻿using Library.Data.Models;
+﻿using Library.Core.Dtos;
+using Library.Data.Models;
 
 namespace Library.Data.Repository.Interfaces;
 
@@ -16,6 +17,7 @@ public interface IBookRepository
     Task<Book> UpdateBookAsync(int id, Book book);
     Task<Book> DeleteBookAsync(int id);
     Task<BookLoan> CreateBookLoanAsync(BookLoan bookLoan);
-    
+    Task<IEnumerable<BookOnHand>> GetBookLoansByUserIdAsync(int userId);
+
     Task SaveChangesAsync();
 }

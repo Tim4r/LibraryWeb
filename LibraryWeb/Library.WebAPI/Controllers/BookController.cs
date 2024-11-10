@@ -3,7 +3,6 @@ using Library.Core.Interfaces;
 using Library.Core.ViewDto;
 using Library.Core.ViewDtos;
 using Library.WebAPI.Mapper;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Library.WebAPI.Controllers;
@@ -53,6 +52,14 @@ public class BookController : ControllerBase
     public async Task<IActionResult> GetBookByISBN(string ISBN)
     {
         var response = await _bookService.GetBookByISBNAsync(ISBN);
+        return Ok(response);
+    }
+
+    [HttpGet]
+    [Route("~/api/GetBookLoansByUserId")]
+    public async Task<IActionResult> GetBookLoansByUserId(int userId)
+    {
+        var response = await _bookService.GetBookLoansByUserIdAsync(userId);
         return Ok(response);
     }
 
