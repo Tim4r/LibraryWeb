@@ -4,7 +4,6 @@ using Library.Core.Interfaces;
 using Library.Core.UnitOfWork;
 using Library.Data.Context;
 using Library.Data.Models;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
 
 namespace Library.BL.Services;

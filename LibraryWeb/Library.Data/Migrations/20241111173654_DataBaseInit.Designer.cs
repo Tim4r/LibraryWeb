@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Library.Data.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20241110212415_DataBaseInit")]
+    [Migration("20241111173654_DataBaseInit")]
     partial class DataBaseInit
     {
         /// <inheritdoc />
@@ -448,7 +448,10 @@ namespace Library.Data.Migrations
             modelBuilder.Entity("Library.Data.Models.BookLoan", b =>
                 {
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<int>("BookId")
                         .HasColumnType("int");
@@ -463,6 +466,9 @@ namespace Library.Data.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("BookId")
+                        .IsUnique();
 
                     b.HasIndex("UserId");
 
@@ -937,7 +943,7 @@ namespace Library.Data.Migrations
                 {
                     b.HasOne("Library.Data.Models.Book", "Book")
                         .WithOne("BookLoan")
-                        .HasForeignKey("Library.Data.Models.BookLoan", "Id")
+                        .HasForeignKey("Library.Data.Models.BookLoan", "BookId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

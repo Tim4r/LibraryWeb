@@ -67,6 +67,7 @@ public class AuthentificationController : ControllerBase
         {
             Subject = new ClaimsIdentity(claims),
             Expires = DateTime.UtcNow.AddDays(1),
+            //Expires = DateTime.UtcNow.AddMinutes(15);
             SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature),
             Issuer = "YourIssuer",
             Audience = "YourAudience"

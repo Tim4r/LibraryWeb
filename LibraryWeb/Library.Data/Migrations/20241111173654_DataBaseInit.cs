@@ -224,7 +224,8 @@ namespace Library.Data.Migrations
                 name: "BookLoans",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     TakenTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ReturnTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UserId = table.Column<int>(type: "int", nullable: false),
@@ -240,8 +241,8 @@ namespace Library.Data.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_BookLoans_Books_Id",
-                        column: x => x.Id,
+                        name: "FK_BookLoans_Books_BookId",
+                        column: x => x.BookId,
                         principalTable: "Books",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -413,6 +414,12 @@ namespace Library.Data.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_BookLoans_BookId",
+                table: "BookLoans",
+                column: "BookId",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_BookLoans_UserId",

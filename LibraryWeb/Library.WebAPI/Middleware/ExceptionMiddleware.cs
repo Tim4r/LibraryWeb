@@ -17,6 +17,12 @@ public class ExceptionMiddleware
         try
         {
             await _next(context);
+
+            if (context.Response.StatusCode == StatusCodes.Status401Unauthorized &&
+                context.Response.Headers.ContainsKey("Token-Expired"))
+            {
+                await HandleTokenExpirationAsync(context);
+            }
         }
         catch (Exception ex)
         {
@@ -34,5 +40,15 @@ public class ExceptionMiddleware
         var result = JsonSerializer.Serialize(new { error = "An unexpected error occurred.", detail = exception.Message });
 
         return response.WriteAsync(result);
+    }
+
+    private static Task HandleTokenExpirationAsync(HttpContext context)
+    {
+        var response = context.Response;
+        response.ContentType = "application/json";
+
+        var result = JsonSerializer.Serialize(new { error = "Token has expired, please re-authenticate." });
+
+        return context.Response.WriteAsync(result);
     }
 }

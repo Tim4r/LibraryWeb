@@ -3,10 +3,12 @@ using Library.Core.Interfaces;
 using Library.Core.ViewDto;
 using Library.Core.ViewDtos;
 using Library.WebAPI.Mapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Library.WebAPI.Controllers;
 
+[Authorize]
 [Route("api/[controller]")]
 [ApiController]
 public class BookController : ControllerBase

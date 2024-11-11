@@ -18,8 +18,8 @@ public class ApplicationDBContext : IdentityDbContext<User, Role, int>
     {
         modelBuilder.Entity<Book>()
             .HasOne(b => b.BookLoan)
-            .WithOne(bl => bl.Book)
-            .HasForeignKey<BookLoan>(bl => bl.Id);
+            .WithOne(bl => bl.Book) 
+            .HasForeignKey<BookLoan>(bl => bl.BookId);
 
         modelBuilder.Entity<User>()
             .HasIndex(u => u.UserName)

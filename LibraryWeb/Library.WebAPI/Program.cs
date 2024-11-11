@@ -1,11 +1,8 @@
 using Library.Core.DependencyInjection;
 using Library.Data.Context;
 using Library.Data.DependencyInjection;
-using Library.Data.Models;
 using Library.WebAPI.Middleware;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Hosting;
 
 namespace Library.WebAPI;
 

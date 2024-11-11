@@ -445,7 +445,10 @@ namespace Library.Data.Migrations
             modelBuilder.Entity("Library.Data.Models.BookLoan", b =>
                 {
                     b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<int>("BookId")
                         .HasColumnType("int");
@@ -460,6 +463,9 @@ namespace Library.Data.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("BookId")
+                        .IsUnique();
 
                     b.HasIndex("UserId");
 
@@ -934,7 +940,7 @@ namespace Library.Data.Migrations
                 {
                     b.HasOne("Library.Data.Models.Book", "Book")
                         .WithOne("BookLoan")
-                        .HasForeignKey("Library.Data.Models.BookLoan", "Id")
+                        .HasForeignKey("Library.Data.Models.BookLoan", "BookId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

@@ -4,6 +4,7 @@ using Library.Core.Interfaces;
 using Library.Data.Context;
 using Library.Data.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
@@ -49,7 +50,27 @@ public static class ServiceCollectionExtension
                 ValidateIssuerSigningKey = true,
                 ValidIssuer = "YourIssuer",
                 ValidAudience = "YourAudience",
-                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("YourSuperSecretKey"))
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("YourSuperSecretKey")),
+                ClockSkew = TimeSpan.Zero
+            };
+
+            options.Events = new JwtBearerEvents
+            {
+                OnAuthenticationFailed = context =>
+                {
+                    if (context.Exception.GetType() == typeof(SecurityTokenExpiredException))
+                        context.Response.Headers.Add("Token-Expired", "true");
+                    return Task.CompletedTask;
+                },
+                OnChallenge = context =>
+                {
+                    if (!context.Response.HasStarted)
+                    {
+                        context.Response.StatusCode = StatusCodes.Status401Unauthorized;
+                        context.HandleResponse();
+                    }
+                    return Task.CompletedTask;
+                }
             };
         });
 
