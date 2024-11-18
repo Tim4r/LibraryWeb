@@ -27,13 +27,10 @@ public static class Config
         {
             new Client
             {
-                ClientId = "client",
-                AllowedGrantTypes = GrantTypes.ClientCredentials,
-                ClientSecrets =
-                {
-                    new Secret("secret".Sha256())
-                },
-                AllowedScopes = { "api" }
+                ClientId = "userClient",
+                AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
+                ClientSecrets = { new Secret("secret".Sha256()) },
+                AllowedScopes = { "api1" }
             }
         };
     }

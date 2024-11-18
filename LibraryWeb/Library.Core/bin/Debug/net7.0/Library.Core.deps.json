@@ -721,7 +721,10 @@
           "Microsoft.Extensions.Identity.Stores": "7.0.20"
         },
         "runtime": {
-          "Library.Data.dll": {}
+          "Library.Data.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }

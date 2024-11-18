@@ -30,7 +30,7 @@ public static class ServiceCollectionExtension
         serviceCollection.AddIdentityServer()
             .AddDeveloperSigningCredential()
             .AddInMemoryApiResources(Config.GetApiResources())
-            .AddInMemoryClients(Config.GetClients())
+            .AddInMemoryClients(Config.GetClients()) 
             .AddInMemoryIdentityResources(Config.GetIdentityResources())
             .AddAspNetIdentity<User>();
 
@@ -39,7 +39,6 @@ public static class ServiceCollectionExtension
             options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
             options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
         })
-
         .AddJwtBearer(options =>
         {
             options.TokenValidationParameters = new TokenValidationParameters

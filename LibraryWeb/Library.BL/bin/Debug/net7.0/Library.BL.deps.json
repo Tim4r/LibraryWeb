@@ -881,7 +881,10 @@
           "Library.Data": "1.0.0"
         },
         "runtime": {
-          "Library.Core.dll": {}
+          "Library.Core.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "Library.Data/1.0.0": {
@@ -895,7 +898,10 @@
           "Microsoft.Extensions.Identity.Stores": "7.0.20"
         },
         "runtime": {
-          "Library.Data.dll": {}
+          "Library.Data.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }
