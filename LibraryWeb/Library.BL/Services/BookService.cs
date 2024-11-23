@@ -54,12 +54,12 @@ public class BookService : IBookService
 
         if (!_context.Authors.Any(a => a.Id == bookToCreate.AuthorId))
         {
-            throw new ArgumentException("Author with ID does not exist");
+            throw new ArgumentException("Author with this ID does not exist");
         }
 
         if (!_context.Genres.Any(c => c.Id == bookToCreate.GenreId))
         {
-            throw new ArgumentException("Category with ID does not exist");
+            throw new ArgumentException("Genre with this ID does not exist");
         }
 
         if (!string.IsNullOrEmpty(book.Image))
@@ -97,17 +97,29 @@ public class BookService : IBookService
 
     public async Task<BookLoanDto> HandOutBookAsync(BookLoanDto bookLoan)
     {
-        var bookExists = await _context.Books.AnyAsync(b => b.Id == bookLoan.BookId);
-        if (!bookExists)
-        {
-            throw new ArgumentException("Book with the provided ID does not exist.");
-        }
+        DateTime returnBookDate = bookLoan.ReturnTime;
+        DateTime dateTimeNow = DateTime.UtcNow;
+
+        TimeSpan timeDiff = returnBookDate - dateTimeNow;
+        int daysBeforeReturn = timeDiff.Days;
+
+        if (daysBeforeReturn <= 1)
+            throw new ArgumentException("Incorrect date! (The return date must be no earlier than one day from the date of receipt of the book)");
+
+        if (daysBeforeReturn > 30)
+            throw new ArgumentException("Incorrect date! (The return date must be no later than thirty days from the date the book was taken)");
 
         var isBookLoaned = await _context.BookLoans.AnyAsync(bl => bl.BookId == bookLoan.BookId);
         if (isBookLoaned)
-        {
-            throw new InvalidOperationException("The book is currently loaned out.");
-        }
+            throw new InvalidOperationException("The book is currently loaned out!");
+
+        var userExist = await _context.Users.AnyAsync(u => u.Id == bookLoan.UserId);
+        if (!userExist)
+            throw new ArgumentException("The author you entered doesn't exist!");
+
+        var bookExist = await _context.Books.AnyAsync(b => b.Id == bookLoan.BookId);
+        if (!bookExist)
+            throw new ArgumentException("The book you entered doesn't exist!");
 
         var newBookLoan = ModelToDtoMapper.Mapper.Map<BookLoan>(bookLoan);
         newBookLoan.TakenTime = DateTime.Now;

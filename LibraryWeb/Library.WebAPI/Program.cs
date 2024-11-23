@@ -13,6 +13,35 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
+        builder.Services.AddControllers();
+
+        builder.Services.AddSwaggerGen(option =>
+        {
+            option.SwaggerDoc("v1", new OpenApiInfo { Title = "LibraryWeb API", Version = "v1" });
+            option.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+            {
+                In = ParameterLocation.Header,
+                Description = "JWT Authorization header using the Bearer scheme (Example: '12345abcdef')",
+                Name = "Authorization",
+                Type = SecuritySchemeType.Http,
+                Scheme = "Bearer"
+            });
+            option.AddSecurityRequirement(new OpenApiSecurityRequirement()
+            {
+                {
+                    new OpenApiSecurityScheme
+                    {
+                        Reference = new OpenApiReference
+                        {
+                            Type = ReferenceType.SecurityScheme,
+                            Id = "Bearer"
+                        }
+                    },
+                    new string[]{}
+                }
+            });
+        });
+
         builder.Configuration.Sources.Clear();
 
         builder.Configuration
@@ -24,51 +53,19 @@ public class Program
         builder.Services.AddDbContext<ApplicationDBContext>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-        builder.Services.AddControllers();
-
-        // Add CORS policy (allow specific or all origins)
         builder.Services.AddCors(options =>
         {
             options.AddPolicy("AllowAllOrigins", builder =>
             {
-                builder.AllowAnyOrigin() // This allows any domain (if security is not a concern)
-                       .AllowAnyMethod() // This allows all HTTP methods (GET, POST, etc.)
-                       .AllowAnyHeader(); // This allows all headers (for custom headers like Authorization)
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
             });
         });
 
         builder.Services.AddRepositories();
         builder.Services.AddAutoMapper(typeof(Program).Assembly);
-        builder.Services.AddServices();
-
-        builder.Services.AddSwaggerGen(c =>
-        {
-            c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-            {
-                Description = "JWT Authorization header using the Bearer scheme (Example: 'Bearer 12345abcdef')",
-                Name = "Authorization",
-                In = ParameterLocation.Header,
-                Type = SecuritySchemeType.ApiKey,
-                Scheme = "Bearer"
-            });
-            c.AddSecurityRequirement(new OpenApiSecurityRequirement()
-            {
-                {
-                    new OpenApiSecurityScheme
-                    {
-                        Reference = new OpenApiReference
-                        {
-                            Type = ReferenceType.SecurityScheme,
-                            Id = "Bearer"
-                        },
-                        Scheme = "oauth2",
-                        Name = "Bearer",
-                        In = ParameterLocation.Header,
-                    },
-                    new List<string>()
-                }
-            });
-        });
+        builder.Services.AddServices(builder.Configuration);
 
         var app = builder.Build();
 
@@ -79,15 +76,15 @@ public class Program
             app.UseDeveloperExceptionPage();
         }
 
-        // Enable CORS
+
         app.UseCors("AllowAllOrigins");
 
         app.UseRouting();
-        app.UseIdentityServer();
+        
         app.UseAuthentication();
         app.UseAuthorization();
 
-        // Configure the HTTP request pipeline.
+
         if (app.Environment.IsDevelopment())
         {
             app.UseSwagger();
@@ -98,9 +95,5 @@ public class Program
         app.MapControllers();
 
         app.Run();
-        
-        //builder.Services.AddEndpointsApiExplorer();
-        //if (app.Environment.IsDevelopment())
-        //    app.UseDeveloperExceptionPage();
     }
 }

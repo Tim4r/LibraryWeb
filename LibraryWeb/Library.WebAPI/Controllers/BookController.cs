@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Library.WebAPI.Controllers;
 
-[Authorize]
 [Route("api/[controller]")]
 [ApiController]
 public class BookController : ControllerBase
@@ -20,6 +19,7 @@ public class BookController : ControllerBase
         _bookService = bookService;
     }
 
+    [Authorize(Policy = "AdminOrUser")]
     [HttpGet]
     [Route("~/api/GetAllBooks")]
     public async Task<IActionResult> GetAllBooks(
@@ -33,6 +33,7 @@ public class BookController : ControllerBase
         return Ok(response);
     }
 
+    [Authorize(Policy = "AdminOrUser")]
     [HttpGet]
     [Route("~/api/GetAllGenresOfBooks")]
     public async Task<IActionResult> GetAllGenresOfBooks()
@@ -41,6 +42,7 @@ public class BookController : ControllerBase
         return Ok(response);
     }
 
+    [Authorize(Policy = "AdminOrUser")]
     [HttpGet]
     [Route("~/api/GetBookById")]
     public async Task<IActionResult> GetBookById(int id)
@@ -49,6 +51,7 @@ public class BookController : ControllerBase
         return Ok(response);
     }
 
+    [Authorize(Policy = "AdminOrUser")]
     [HttpGet]
     [Route("~/api/GetBookByISBN")]
     public async Task<IActionResult> GetBookByISBN(string ISBN)
@@ -57,6 +60,7 @@ public class BookController : ControllerBase
         return Ok(response);
     }
 
+    [Authorize(Policy = "AdminOrUser")]
     [HttpGet]
     [Route("~/api/GetBookLoansByUserId")]
     public async Task<IActionResult> GetBookLoansByUserId(int userId)
@@ -65,6 +69,7 @@ public class BookController : ControllerBase
         return Ok(response);
     }
 
+    [Authorize(Policy = "AdminOnly")]
     [HttpPost]
     [Route("~/api/CreateBook")]
     public async Task<IActionResult> CreateBook([FromBody] BookViewDto bookViewDto)
@@ -74,6 +79,7 @@ public class BookController : ControllerBase
         return Ok(response);
     }
 
+    [Authorize(Policy = "AdminOnly")]
     [HttpPost]
     [Route("~/api/UpdateBook")]
     public async Task<IActionResult> UpdateBook(int id, [FromBody] BookViewDto bookViewDto)
@@ -84,6 +90,7 @@ public class BookController : ControllerBase
       
     }
 
+    [Authorize(Policy = "AdminOnly")]
     [HttpDelete]
     [Route("~/api/DeleteBook")]
     public async Task<IActionResult> DeleteBook(int id)
@@ -92,6 +99,7 @@ public class BookController : ControllerBase
         return Ok(response);
     }
 
+    [Authorize(Policy = "AdminOrUser")]
     [HttpPost]
     [Route("~/api/HandOutBook")]
     public async Task<IActionResult> HandOutBook([FromBody] BookLoanViewDto bookLoanViewDto)

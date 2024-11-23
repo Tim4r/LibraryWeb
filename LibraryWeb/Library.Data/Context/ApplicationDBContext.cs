@@ -109,7 +109,7 @@ public class ApplicationDBContext : IdentityDbContext<User, Role, int>
             Id = 2,
             UserName = "Anton",
             NormalizedUserName = "ANTON",
-            Email = "Qwerty123@mail.ru",
+            Email = "Qwerty1234@mail.ru",
             NormalizedEmail = "QWERTY123@MAIL.RU",
             EmailConfirmed = false,
             PasswordHash = "AQAAAAIAAYagAAAAEFAm4UHPiz3NH8XJlo8evnNVjCs+1BLQH0KEx7RckQGTscIwUiD0hdRu8l1yfR5TyQ==",

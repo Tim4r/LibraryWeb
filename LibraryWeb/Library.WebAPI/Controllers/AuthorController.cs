@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Library.WebAPI.Controllers;
 
-[Authorize]
 [Route("api/[controller]")]
 [ApiController]
 public class AuthorController : ControllerBase
@@ -20,6 +19,7 @@ public class AuthorController : ControllerBase
         _authorService = authorService;
     }
 
+    [Authorize(Policy = "AdminOrUser")]
     [HttpGet]
     [Route("~/api/GetAllAuthors")]
     public async Task<IActionResult> GetAllAuthors(int pageNumber = 1, int pageSize = 10)
@@ -28,6 +28,7 @@ public class AuthorController : ControllerBase
         return Ok(response);
     }
 
+    [Authorize(Policy = "AdminOrUser")]
     [HttpGet]
     [Route("~/api/GetAuthorById")]
     public async Task<IActionResult> GetAuthorById(int id)
@@ -36,6 +37,7 @@ public class AuthorController : ControllerBase
         return Ok(response);
     }
 
+    [Authorize(Policy = "AdminOnly")]
     [HttpPost]
     [Route("~/api/CreateAuthor")]
     public async Task<IActionResult> CreateAuthor([FromBody] AuthorViewDto authorViewDto)
@@ -45,6 +47,7 @@ public class AuthorController : ControllerBase
         return Ok(response);
     }
 
+    [Authorize(Policy = "AdminOnly")]
     [HttpPost]
     [Route("~/api/UpdateAuthor")]
     public async Task<IActionResult> UpdateAuthor(int id, [FromBody] AuthorViewDto authorViewDto)
@@ -54,6 +57,7 @@ public class AuthorController : ControllerBase
         return Ok(response);
     }
 
+    [Authorize(Policy = "AdminOnly")]
     [HttpDelete]
     [Route("~/api/DeleteAuthor")]
     public async Task<IActionResult> DeleteAuthor(int id)
@@ -62,6 +66,7 @@ public class AuthorController : ControllerBase
         return Ok(response);
     }
 
+    [Authorize(Policy = "AdminOrUser")]
     [HttpGet]
     [Route("~/api/GetBooksByAuthor")]
     public async Task<IActionResult> GetBooksByAuthor(int id)
