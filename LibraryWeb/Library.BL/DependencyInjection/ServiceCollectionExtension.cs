@@ -8,7 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
-namespace Library.Core.DependencyInjection;
+namespace Library.BL.DependencyInjection;
 
 public static class ServiceCollectionExtension
 {
@@ -18,7 +18,7 @@ public static class ServiceCollectionExtension
         serviceCollection.AddScoped<IAuthorService, AuthorService>();
         serviceCollection.AddScoped<ITokenService, TokenService>();
 
-        serviceCollection.AddIdentity<User, Role> (options =>
+        serviceCollection.AddIdentity<User, Role>(options =>
         {
             options.Password.RequireDigit = true;
             options.Password.RequireLowercase = true;
@@ -48,7 +48,9 @@ public static class ServiceCollectionExtension
                 ValidateIssuerSigningKey = true,
                 IssuerSigningKey = new SymmetricSecurityKey(
                 Encoding.UTF8.GetBytes(configuration["JWT:SigningKey"])
-                )
+                ),
+                ValidateLifetime = true,
+                ClockSkew = TimeSpan.Zero 
             };
         });
 

@@ -1,4 +1,4 @@
-using Library.Core.DependencyInjection;
+using Library.BL.DependencyInjection;
 using Library.Data.Context;
 using Library.Data.DependencyInjection;
 using Library.WebAPI.Middleware;
