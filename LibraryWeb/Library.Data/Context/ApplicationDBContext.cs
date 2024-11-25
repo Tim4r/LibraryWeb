@@ -13,6 +13,7 @@ public class ApplicationDBContext : IdentityDbContext<User, Role, int>
     public DbSet<Genre> Genres { get; set; }
     public DbSet<Book> Books { get; set; }
     public DbSet<BookLoan> BookLoans { get; set; }
+    public DbSet<RefreshToken> RefreshTokens { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
