@@ -69,21 +69,10 @@ public class Program
 
         var app = builder.Build();
 
-        app.UseMiddleware<ExceptionMiddleware>();
-
         if (app.Environment.IsDevelopment())
         {
             app.UseDeveloperExceptionPage();
         }
-
-
-        app.UseCors("AllowAllOrigins");
-
-        app.UseRouting();
-        
-        app.UseAuthentication();
-        app.UseAuthorization();
-
 
         if (app.Environment.IsDevelopment())
         {
@@ -91,7 +80,15 @@ public class Program
             app.UseSwaggerUI();
         }
 
+        app.UseCors("AllowAllOrigins");
+        app.UseRouting();
+        
         app.UseHttpsRedirection();
+        app.UseMiddleware<ExceptionMiddleware>();
+
+        app.UseAuthentication();
+        app.UseAuthorization();
+
         app.MapControllers();
 
         app.Run();
