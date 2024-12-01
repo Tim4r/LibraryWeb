@@ -10,6 +10,7 @@ public interface IBookService
         int? authorId,
         int? categoryId,
         string? searchQuery);
+    Task<IEnumerable<BookDto>> GetAllHandOutBooksAsync();
     Task<IEnumerable<GenreDto>> GetAllGenresOfBooksAsync();
     Task<BookDto> GetBookByIdAsync(int id);
     Task<BookDto> GetBookByISBNAsync(string ISBN);

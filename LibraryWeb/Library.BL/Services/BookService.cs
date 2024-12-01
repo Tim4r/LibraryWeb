@@ -30,6 +30,12 @@ public class BookService : IBookService
         return ModelToDtoMapper.Mapper.Map<IEnumerable<BookDto>>(books);
     }
 
+    public async Task<IEnumerable<BookDto>> GetAllHandOutBooksAsync()
+    {
+        var books = await _unitOfWork.Books.GetAllHandOutBooksAsync();
+        return ModelToDtoMapper.Mapper.Map<IEnumerable<BookDto>>(books);
+    }
+
     public async Task<IEnumerable<GenreDto>> GetAllGenresOfBooksAsync()
     {
         var genres = await _unitOfWork.Genres.GetAllGenresOfBooksAsync();

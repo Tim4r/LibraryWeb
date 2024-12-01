@@ -36,7 +36,16 @@ public class BookRepository : IBookRepository
             .ToListAsync();
 
         return booksList;
-    } 
+    }
+
+    public async Task<IEnumerable<Book>> GetAllHandOutBooksAsync()
+    {
+        var bookList = await _context.Books
+            .Where(b => b.BookLoan != null)
+            .ToListAsync();
+
+        return bookList;
+    }
 
     public async Task<Book> GetBookByIdAsync(int id)
     {

@@ -11,6 +11,7 @@ public interface IBookRepository
         int? authorId,
         int? categoryId,
         string? searchQuery);
+    Task<IEnumerable<Book>> GetAllHandOutBooksAsync();
     Task<Book> GetBookByIdAsync(int id);
     Task<Book> GetBookByISBNAsync(string ISBN);
     Task<Book> CreateBookAsync(Book book);

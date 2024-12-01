@@ -35,6 +35,15 @@ public class BookController : ControllerBase
 
     [Authorize(Policy = "AdminOrUser")]
     [HttpGet]
+    [Route("~/api/GetAllHandOutBooks")]
+    public async Task<IActionResult> GetAllHandOutBooks()
+    {
+        var response = await _bookService.GetAllHandOutBooksAsync();
+        return Ok(response);
+    }
+
+    [Authorize(Policy = "AdminOrUser")]
+    [HttpGet]
     [Route("~/api/GetAllGenresOfBooks")]
     public async Task<IActionResult> GetAllGenresOfBooks()
     {
