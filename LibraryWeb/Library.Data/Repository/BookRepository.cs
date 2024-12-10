@@ -19,7 +19,9 @@ public class BookRepository : IBookRepository
         int? categoryId,
         string? searchQuery)
     {
-        var query = _context.Books.AsQueryable();
+        var query = _context.Books
+        .Include(b => b.Author)
+        .AsQueryable();
 
         if (authorId.HasValue)
             query = query.Where(b => b.AuthorId == authorId.Value);

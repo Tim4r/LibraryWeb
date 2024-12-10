@@ -1,9 +1,8 @@
 ﻿using Library.Data.Models;
 
-namespace Library.Core.Interfaces
+namespace Library.Core.Interfaces;
+
+public interface IUserService
 {
-    public interface IUserService
-    {
-        Task<User> Register(User user);
-    }
+    Task<User> Register(User user);
 }

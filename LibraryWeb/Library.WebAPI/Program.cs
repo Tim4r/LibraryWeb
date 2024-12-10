@@ -55,7 +55,7 @@ public class Program
 
         builder.Services.AddCors(options =>
         {
-            options.AddPolicy("AllowAllOrigins", builder =>
+            options.AddPolicy("AllowReactApp", builder =>
             {
                 builder.AllowAnyOrigin()
                        .AllowAnyMethod()
@@ -80,15 +80,17 @@ public class Program
             app.UseSwaggerUI();
         }
 
-        app.UseCors("AllowAllOrigins");
+        app.UseCors("AllowReactApp");
         app.UseRouting();
         
         app.UseHttpsRedirection();
+
+        app.UseStaticFiles();
+
         app.UseMiddleware<ExceptionMiddleware>();
 
         app.UseAuthentication();
         app.UseAuthorization();
-
         app.MapControllers();
 
         app.Run();

@@ -1,6 +1,4 @@
-﻿using Library.Data.Models;
-
-namespace Library.Core.ViewDtos;
+﻿namespace Library.Core.ViewDtos;
 
 public class AuthorViewDto
 {

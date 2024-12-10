@@ -1,8 +1,7 @@
-﻿namespace Library.Core.Dtos
+﻿namespace Library.Core.Dtos;
+
+public class LoginDto
 {
-    public class LoginDto
-    {
-        public string Username { get; set; } = string.Empty;
-        public string Password { get; set; } = string.Empty;
-    }
+    public string Username { get; set; } = string.Empty;
+    public string Password { get; set; } = string.Empty;
 }

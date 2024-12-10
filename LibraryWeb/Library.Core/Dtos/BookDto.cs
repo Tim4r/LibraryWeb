@@ -1,4 +1,6 @@
-﻿namespace Library.Core.Dtos;
+﻿using Library.Data.Models;
+
+namespace Library.Core.Dtos;
 
 public class BookDto
 {
@@ -9,4 +11,6 @@ public class BookDto
     public string? Image { get; set; } = string.Empty;
     public int AuthorId { get; set; }
     public int GenreId { get; set; }
+
+    public Author? Author { get; set; }
 }
