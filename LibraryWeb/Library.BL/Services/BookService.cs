@@ -4,18 +4,22 @@ using Library.Core.Interfaces;
 using Library.Core.UnitOfWork;
 using Library.Data.Context;
 using Library.Data.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace Library.BL.Services;
 
 public class BookService : IBookService
 {
+    private readonly IConfiguration _configuration;
     private readonly ApplicationDBContext _context;
     
     private readonly IUnitOfWork _unitOfWork;
-    public BookService(ApplicationDBContext context, IUnitOfWork unitOfWork)
+    public BookService(ApplicationDBContext context, IConfiguration configuration, IUnitOfWork unitOfWork)
     {
         _context = context;
+        _configuration = configuration;
         _unitOfWork = unitOfWork;
     }
 
@@ -149,10 +153,12 @@ public class BookService : IBookService
         var imageBytes = Convert.FromBase64String(base64Image);
 
         var fileName = $"{Guid.NewGuid()}.jpg";
-        var filePath = Path.Combine("Images", "BookCovers", fileName);
+        var filePath = Path.Combine("wwwroot", "Images", "BookCovers", fileName);
 
         File.WriteAllBytes(filePath, imageBytes);
 
-        return $"/Images/BookCovers/{fileName}";
+        var baseUrl = _configuration["BaseUrl"];
+
+        return $"{baseUrl}/Images/BookCovers/{fileName}";
     }
 }

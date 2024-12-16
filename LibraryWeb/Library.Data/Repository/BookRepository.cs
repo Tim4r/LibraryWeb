@@ -75,7 +75,10 @@ public class BookRepository : IBookRepository
         {
             sourceBook.Title = book.Title;
             sourceBook.ISBN = book.ISBN;
+            sourceBook.AuthorId = book.AuthorId;
+            sourceBook.GenreId = book.GenreId;
             sourceBook.Description = book.Description;
+            sourceBook.Image = book.Image;
         }
         return book;
     }
