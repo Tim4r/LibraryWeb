@@ -19,6 +19,4 @@ public interface IBookRepository
     Task<Book> DeleteBookAsync(int id);
     Task<BookLoan> CreateBookLoanAsync(BookLoan bookLoan);
     Task<IEnumerable<BookOnHand>> GetBookLoansByUserIdAsync(int userId);
-
-    Task SaveChangesAsync();
 }

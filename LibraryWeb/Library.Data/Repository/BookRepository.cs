@@ -13,7 +13,7 @@ public class BookRepository : IBookRepository
     public BookRepository(ApplicationDBContext context) => _context = context;
 
     public async Task<IEnumerable<Book>> GetAllBooksAsync(
-        int pageNumber, 
+        int pageNumber,
         int pageSize,
         int? authorId,
         int? categoryId,
@@ -110,10 +110,5 @@ public class BookRepository : IBookRepository
             })
             .ToListAsync();
         return bookLoans;
-    }
-
-    public Task SaveChangesAsync()
-    {
-        return _context.SaveChangesAsync();
     }
 }

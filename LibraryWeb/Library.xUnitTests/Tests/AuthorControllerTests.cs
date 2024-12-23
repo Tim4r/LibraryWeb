@@ -21,14 +21,11 @@ public class AuthorControllerTests
     [Fact]
     public async Task GetAllAuthors_ReturnsOkResult_WithListOfAuthors()
     {
-        // Arrange
         var authors = new List<AuthorDto> { new AuthorDto { FirstName = "John", LastName = "Doe" } };
         _mockAuthorService.Setup(service => service.GetAllAuthorsAsync(1, 10)).ReturnsAsync(authors);
 
-        // Act
         var result = await _controller.GetAllAuthors();
 
-        // Assert
         var okResult = Assert.IsType<OkObjectResult>(result);
         var returnAuthors = Assert.IsType<List<AuthorDto>>(okResult.Value);
         Assert.Single(returnAuthors);
@@ -37,14 +34,11 @@ public class AuthorControllerTests
     [Fact]
     public async Task CreateAuthor_ReturnsOkResult_WhenAuthorCreated()
     {
-        // Arrange
         var authorDto = new AuthorDto { FirstName = "Jane", LastName = "Smith" };
         _mockAuthorService.Setup(service => service.CreateAuthorAsync(It.IsAny<AuthorDto>())).ReturnsAsync(authorDto);
 
-        // Act
         var result = await _controller.CreateAuthor(new AuthorViewDto { FirstName = "Jane", LastName = "Smith" });
 
-        // Assert
         var okResult = Assert.IsType<OkObjectResult>(result);
         var createdAuthor = Assert.IsType<AuthorDto>(okResult.Value);
         Assert.Equal("Jane", createdAuthor.FirstName);

@@ -1,10 +1,10 @@
 ﻿using Library.BL.Services;
 using Library.Core.Dtos;
-using Library.Core.UnitOfWork;
 using Library.Data.Models;
+using Library.Data.UnitOfWork;
 using Moq;
 
-namespace Library.WebAPI.Tests;
+namespace Library.xUnitTests.Tests;
 
 public class AuthorServiceTests
 {
@@ -20,14 +20,11 @@ public class AuthorServiceTests
     [Fact]
     public async Task GetAllAuthorsAsync_ReturnsListOfAuthorDtos()
     {
-        // Arrange
         var authors = new List<Author> { new Author { Id = 1, FirstName = "John", LastName = "Doe" } };
         _mockUnitOfWork.Setup(uow => uow.Authors.GetAllAuthorsAsync(1, 10)).ReturnsAsync(authors);
 
-        // Act
         var result = await _service.GetAllAuthorsAsync(1, 10);
 
-        // Assert
         Assert.NotNull(result);
         Assert.Single(result);
     }
@@ -35,17 +32,18 @@ public class AuthorServiceTests
     [Fact]
     public async Task CreateAuthorAsync_CreatesAndReturnsAuthorDto()
     {
-        // Arrange
         var authorDto = new AuthorDto { FirstName = "Jane", LastName = "Doe" };
         var author = new Author { Id = 1, FirstName = "Jane", LastName = "Doe" };
 
         _mockUnitOfWork.Setup(uow => uow.Authors.CreateAuthorAsync(It.IsAny<Author>())).ReturnsAsync(author);
-        _mockUnitOfWork.Setup(uow => uow.Authors.SaveChangesAsync()).Returns(Task.CompletedTask);
+        _mockUnitOfWork.Setup(uow => uow.CompleteAsync()).ReturnsAsync(1);
 
-        // Act
         var result = await _service.CreateAuthorAsync(authorDto);
 
-        // Assert
         Assert.Equal("Jane", result.FirstName);
+        Assert.Equal("Doe", result.LastName);
+
+        _mockUnitOfWork.Verify(uow => uow.Authors.CreateAuthorAsync(It.IsAny<Author>()), Times.Once);
+        _mockUnitOfWork.Verify(uow => uow.CompleteAsync(), Times.Once);
     }
 }

@@ -26,10 +26,10 @@ public class BookController : ControllerBase
         int pageNumber = 1, 
         int pageSize = 10,
         int? authorId = null,
-        int? categoryId = null,
+        int? genreId = null,
         string? searchQuery = null)
     {
-        var response = await _bookService.GetAllBooksAsync(pageNumber, pageSize, authorId, categoryId, searchQuery);
+        var response = await _bookService.GetAllBooksAsync(pageNumber, pageSize, authorId, genreId, searchQuery);
         return Ok(response);
     }
 

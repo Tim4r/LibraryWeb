@@ -1,8 +1,7 @@
-﻿using Library.BL.Services;
-using Library.Core.UnitOfWork;
-using Library.Data.Context;
+﻿using Library.Data.Context;
 using Library.Data.Repository;
 using Library.Data.Repository.Interfaces;
+using Library.Data.UnitOfWork;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -20,6 +19,6 @@ public static class ServiceCollectionExtension
         serviceCollection.AddScoped<IBookRepository, BookRepository>();
         serviceCollection.AddScoped<IAuthorRepository, AuthorRepository>();
         serviceCollection.AddScoped<IGenreRepository, GenreRepository>();
-        serviceCollection.AddScoped<IUnitOfWork, UnitOfWork>();
+        serviceCollection.AddScoped<IUnitOfWork, UnitOfWork.UnitOfWork>();
     }
 }

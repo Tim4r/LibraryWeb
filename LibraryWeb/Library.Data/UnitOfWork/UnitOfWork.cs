@@ -1,14 +1,13 @@
-﻿using Library.BL.Services;
-using Library.Data.Context;
-using Library.Data.Models;
+﻿using Library.Data.Context;
 using Library.Data.Repository;
 using Library.Data.Repository.Interfaces;
 
-namespace Library.Core.UnitOfWork;
+namespace Library.Data.UnitOfWork;
 
 public class UnitOfWork : IUnitOfWork
 {
     private readonly ApplicationDBContext _context;
+
     private IBookRepository _books;
     private IAuthorRepository _authors;
     private IGenreRepository _genres;

@@ -1,6 +1,6 @@
 ﻿using Library.Data.Models;
 
-namespace Library.BL.Services;
+namespace Library.Data.Repository.Interfaces;
 
 public interface IAuthorRepository
 {
@@ -10,5 +10,4 @@ public interface IAuthorRepository
     Task<Author> UpdateAuthorAsync(int id, Author author);
     Task<Author> DeleteAuthorAsync(int id);
     Task<IEnumerable<Book>> GetBooksByAuthorAsync(int authorId);
-    Task SaveChangesAsync();
 }

@@ -34,20 +34,16 @@ public class AuthorRepositoryTests
     [Fact]
     public async Task GetAllAuthorsAsync_ReturnsAllAuthors()
     {
-        // Act
         var result = await _repository.GetAllAuthorsAsync(1, 10);
 
-        // Assert
         Assert.Equal(2, result.Count());
     }
 
     [Fact]
     public async Task GetAuthorByIdAsync_ReturnsCorrectAuthor()
     {
-        // Act
         var result = await _repository.GetAuthorByIdAsync(1);
 
-        // Assert
         Assert.NotNull(result);
         Assert.Equal("John", result.FirstName);
     }

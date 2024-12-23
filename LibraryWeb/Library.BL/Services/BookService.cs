@@ -1,9 +1,9 @@
 ﻿using Library.BL.Mapper;
 using Library.Core.Dtos;
 using Library.Core.Interfaces;
-using Library.Core.UnitOfWork;
 using Library.Data.Context;
 using Library.Data.Models;
+using Library.Data.UnitOfWork;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -79,7 +79,7 @@ public class BookService : IBookService
         }
 
         await _unitOfWork.Books.CreateBookAsync(bookToCreate);
-        await _unitOfWork.Books.SaveChangesAsync();
+        await _unitOfWork.CompleteAsync();
         return book;
     }
 
@@ -94,14 +94,14 @@ public class BookService : IBookService
         }
 
         await _unitOfWork.Books.UpdateBookAsync(id, bookToUpdate);
-        await _unitOfWork.Books.SaveChangesAsync();
+        await _unitOfWork.CompleteAsync();
         return book;
     }
 
     public async Task<BookDto> DeleteBookAsync(int id)
     {
         var bookForDelete = await _unitOfWork.Books.DeleteBookAsync(id);
-        await _unitOfWork.Books.SaveChangesAsync();
+        await _unitOfWork.CompleteAsync();
         return ModelToDtoMapper.Mapper.Map<BookDto>(bookForDelete);
     }
 
@@ -135,7 +135,7 @@ public class BookService : IBookService
         newBookLoan.TakenTime = DateTime.Now;
 
         await _unitOfWork.Books.CreateBookLoanAsync(newBookLoan);
-        await _unitOfWork.Books.SaveChangesAsync();
+        await _unitOfWork.CompleteAsync();
 
         return ModelToDtoMapper.Mapper.Map<BookLoanDto>(newBookLoan);
     }

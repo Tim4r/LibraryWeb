@@ -1,6 +1,6 @@
-﻿using Library.BL.Services;
-using Library.Data.Context;
+﻿using Library.Data.Context;
 using Library.Data.Models;
+using Library.Data.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace Library.Data.Repository;
@@ -56,10 +56,5 @@ public class AuthorRepository : IAuthorRepository
             .Where(x => x.AuthorId == id)
             .ToListAsync();
         return books;
-    }
-
-    public Task SaveChangesAsync()
-    {
-        return _context.SaveChangesAsync();
     }
 }

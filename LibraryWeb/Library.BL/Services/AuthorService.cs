@@ -1,8 +1,8 @@
 ﻿using Library.BL.Mapper;
 using Library.Core.Dtos;
 using Library.Core.Interfaces;
-using Library.Core.UnitOfWork;
 using Library.Data.Models;
+using Library.Data.UnitOfWork;
 
 namespace Library.BL.Services;
 
@@ -30,7 +30,7 @@ public class AuthorService : IAuthorService
     {
         var authorToCreate = ModelToDtoMapper.Mapper.Map<Author>(author);
         await _unitOfWork.Authors.CreateAuthorAsync(authorToCreate);
-        await _unitOfWork.Authors.SaveChangesAsync();
+        await _unitOfWork.CompleteAsync();
         return author;
     }
 
@@ -38,14 +38,14 @@ public class AuthorService : IAuthorService
     {
         var authorToUpdate = ModelToDtoMapper.Mapper.Map<Author>(author);
         await _unitOfWork.Authors.UpdateAuthorAsync(id, authorToUpdate);
-        await _unitOfWork.Authors.SaveChangesAsync();
+        await _unitOfWork.CompleteAsync();
         return author;
     }
 
     public async Task<AuthorDto> DeleteAuthorAsync(int id)
     {
         var authorForDelete = await _unitOfWork.Authors.DeleteAuthorAsync(id);
-        await _unitOfWork.Authors.SaveChangesAsync();
+        await _unitOfWork.CompleteAsync();
         return ModelToDtoMapper.Mapper.Map<AuthorDto>(authorForDelete); 
     }
 

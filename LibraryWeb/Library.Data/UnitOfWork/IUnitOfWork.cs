@@ -1,11 +1,10 @@
-﻿using Library.BL.Services;
-using Library.Data.Repository.Interfaces;
+﻿using Library.Data.Repository.Interfaces;
 
-namespace Library.Core.UnitOfWork;
+namespace Library.Data.UnitOfWork;
 
 public interface IUnitOfWork : IDisposable
 {
-    IBookRepository Books {  get; }
+    IBookRepository Books { get; }
     IAuthorRepository Authors { get; }
     IGenreRepository Genres { get; }
 

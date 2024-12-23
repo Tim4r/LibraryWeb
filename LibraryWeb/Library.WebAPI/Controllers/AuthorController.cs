@@ -52,7 +52,7 @@ public class AuthorController : ControllerBase
     [Route("~/api/UpdateAuthor")]
     public async Task<IActionResult> UpdateAuthor(int id, [FromBody] AuthorViewDto authorViewDto)
     {
-        var authorDto = ModelToDtoMapper.Mapper.Map<AuthorDto>(authorViewDto);
+        var authorDto = ViewDtoToDtoMapper.Mapper.Map<AuthorDto>(authorViewDto);
         var response = await _authorService.UpdateAuthorAsync(id, authorDto);
         return Ok(response);
     }
