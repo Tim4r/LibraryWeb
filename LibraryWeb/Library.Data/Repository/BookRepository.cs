@@ -106,7 +106,8 @@ public class BookRepository : IBookRepository
                 Image = bl.Book.Image,
                 FirstName = bl.Book.Author.FirstName,
                 LastName = bl.Book.Author.LastName,
-                ReturnTime = bl.ReturnTime
+                ReturnTime = bl.ReturnTime,
+                BookId = bl.BookId
             })
             .ToListAsync();
         return bookLoans;
