@@ -89,8 +89,15 @@ public class BookService : IBookService
 
         if(!string.IsNullOrEmpty(book.Image)) 
         {
-            string imagePath = SaveImage(book.Image);
-            bookToUpdate.Image = imagePath;
+            if (book.Image.Contains("/Images/BookCovers/"))
+            {
+                bookToUpdate.Image = book.Image;
+            } 
+            else
+            {
+                string imagePath = SaveImage(book.Image);
+                bookToUpdate.Image = imagePath;
+            }
         }
 
         await _unitOfWork.Books.UpdateBookAsync(id, bookToUpdate);
